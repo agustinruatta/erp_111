@@ -11,15 +11,9 @@ package org.erp111.servicios;
  */
 public class ServicioProveedores {
 
-    /**
-     * ***********************************************************************
-     */
-    /**
-     * ************* VALIDACION DE CAMPOS         *********************
-     */
-    /**
-     * ***********************************************************************
-     */
+    /*************************************************************************/
+    /***************       VALIDACION DE CAMPOS         **********************/
+    /*************************************************************************/
     public void validarNombre(String nombre) {
         if (nombre.isEmpty() || nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("Nombre vacio");
@@ -71,4 +65,17 @@ public class ServicioProveedores {
         }
     }
 
+    /*************************************************************************/
+    /***************               METODOS              **********************/
+    /*************************************************************************/
+    
+    public void guardarProveedor(String nombre, String apellido, String cuit, String telefono, String direccion, String ciudad){
+        //Validacion de los datos
+        validarNombre(nombre);
+        validarApellido(apellido);
+        validarCuit(cuit);
+        validarTelefono(telefono);
+        validarDireccion(direccion);
+        validarCiudad(ciudad);
+    }
 }
