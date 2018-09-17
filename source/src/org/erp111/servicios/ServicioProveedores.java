@@ -14,7 +14,7 @@ public class ServicioProveedores {
     /*************************************************************************/
     /***************       VALIDACION DE CAMPOS         **********************/
     /*************************************************************************/
-    public void validarNombre(String nombre) {
+    private void validarNombre(String nombre) {
         if (nombre.isEmpty() || nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("Nombre vacio");
         }
@@ -23,7 +23,7 @@ public class ServicioProveedores {
         }
     }
 
-    public void validarApellido(String apellido) {
+    private void validarApellido(String apellido) {
         if (apellido.isEmpty() || apellido.trim().isEmpty()) {
             throw new IllegalArgumentException("Apellido vacio");
         }
@@ -32,7 +32,7 @@ public class ServicioProveedores {
         }
     }
 
-    public void validarCuit(String cuit) {
+    private void validarCuit(String cuit) {
         if (cuit.isEmpty() || cuit.trim().isEmpty()) {
             throw new IllegalArgumentException("Cuit vacio");
         }
@@ -41,7 +41,7 @@ public class ServicioProveedores {
         }
     }
 
-    public void validarTelefono(String telefono) {
+    private void validarTelefono(String telefono) {
         if (telefono.isEmpty() || telefono.trim().isEmpty()) {
             throw new IllegalArgumentException("Telefono vacio");
         }
@@ -50,13 +50,13 @@ public class ServicioProveedores {
         }
     }
     
-    public void validarDireccion(String direccion) {
+    private void validarDireccion(String direccion) {
         if (direccion.isEmpty() || direccion.trim().isEmpty()) {
             throw new IllegalArgumentException("Direccion vacio");
         }
     }
     
-    public void validarCiudad(String ciudad) {
+    private void validarCiudad(String ciudad) {
         if (ciudad.isEmpty() || ciudad.trim().isEmpty()) {
             throw new IllegalArgumentException("Ciudad vacio");
         }
