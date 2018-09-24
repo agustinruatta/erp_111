@@ -95,7 +95,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="proveedorComboBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTextField1" max="32767" attributes="0"/>
+                      <Component id="proveedorTextFieldFiltro" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="proveedorBotonBuscar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -147,7 +147,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="proveedorComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="proveedorTextFieldFiltro" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorBotonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="10" max="32767" attributes="0"/>
@@ -253,12 +253,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorBotonDarDeBajaApretado"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="proveedorTextFieldFiltro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Escriba el proveedor que desea buscar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorTextFieldFiltroActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="proveedorComboBox">

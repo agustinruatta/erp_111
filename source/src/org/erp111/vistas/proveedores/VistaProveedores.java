@@ -4,16 +4,18 @@
  * and open the template in the editor.
  */
 package org.erp111.vistas.proveedores;
+import javax.swing.JTextField;
+import org.erp111.presentadores.PresentadorProveedores;
 
 /**
  *
  * @author lucas
  */
 public class VistaProveedores extends javax.swing.JFrame {
-
-    /**
-     * Creates new form VistaProveedores
-     */
+    private PresentadorProveedores presentadorProveedores;
+    
+    
+    
     public VistaProveedores() {
         initComponents();
     }
@@ -32,7 +34,7 @@ public class VistaProveedores extends javax.swing.JFrame {
         proveedorTable = new javax.swing.JTable();
         proveedorBotonEditar = new javax.swing.JButton();
         proveedorBotonDarDeBaja = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        proveedorTextFieldFiltro = new javax.swing.JTextField();
         proveedorComboBox = new javax.swing.JComboBox<>();
         proveedorBotonBuscar = new javax.swing.JButton();
         proveedorLabelNombre = new javax.swing.JLabel();
@@ -84,10 +86,10 @@ public class VistaProveedores extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("Escriba el proveedor que desea buscar");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        proveedorTextFieldFiltro.setText("Escriba el proveedor que desea buscar");
+        proveedorTextFieldFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                proveedorTextFieldFiltroActionPerformed(evt);
             }
         });
 
@@ -196,7 +198,7 @@ public class VistaProveedores extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(proveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1)
+                        .addComponent(proveedorTextFieldFiltro)
                         .addGap(18, 18, 18)
                         .addComponent(proveedorBotonBuscar)
                         .addGap(18, 18, 18))))
@@ -239,7 +241,7 @@ public class VistaProveedores extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proveedorTextFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(proveedorBotonBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,33 +254,73 @@ public class VistaProveedores extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public JTextField getNombreTextField(){
+        
+        return proveedorTextFieldNombre;
+    }
+    
+    public JTextField getApellidoTextField() {
+        
+        return proveedorTextFieldApellido;
+    }
+    
+    public JTextField getCuitTextField() {
+        
+        return proveedorTextFieldCuit;
+    }
+    
+    public JTextField getTelefonoTextField() {
+        
+        return proveedorTextFieldTelefono;
+    }
+    
+    public JTextField getEmailTextField() {
+        
+        return proveedorTextFieldEmail;
+    }
+    
+    public JTextField getDireccionTextField() {
+        
+        return proveedorTextFieldDireccion;
+    }
+    
+    public JTextField getCiudadTextField() {
+        
+        return proveedorTextFieldCiudad;
+    }
+    
+    public JTextField getProvinciaTextField() {
+        
+        return proveedorTextFieldProvincia;
+    }
+    
     private void proveedorBotonDarDeBajaApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonDarDeBajaApretado
-        // TODO add your handling code here:
+        this.presentadorProveedores.botonDarDeBajaApretado();
     }//GEN-LAST:event_proveedorBotonDarDeBajaApretado
 
     private void proveedorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_proveedorComboBoxActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void proveedorTextFieldFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorTextFieldFiltroActionPerformed
+        
+    }//GEN-LAST:event_proveedorTextFieldFiltroActionPerformed
 
     private void proveedorBotonEditarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonEditarApretado
-        // TODO add your handling code here:
+        this.presentadorProveedores.botonEditarApretado();
     }//GEN-LAST:event_proveedorBotonEditarApretado
 
     private void proveedorBotonBuscarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonBuscarApretado
-        // TODO add your handling code here:
+        this.presentadorProveedores.botonBuscarApretado();
     }//GEN-LAST:event_proveedorBotonBuscarApretado
 
     private void proveedorBotonGuardarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonGuardarApretado
-        // TODO add your handling code here:
+        this.presentadorProveedores.botonGuardarApretado();
     }//GEN-LAST:event_proveedorBotonGuardarApretado
 
     private void proveedorBotonCancelarEdicionApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonCancelarEdicionApretado
-        // TODO add your handling code here:
+        this.presentadorProveedores.botonCancelarEdicionApretado();
     }//GEN-LAST:event_proveedorBotonCancelarEdicionApretado
 
     /**
@@ -320,7 +362,6 @@ public class VistaProveedores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton proveedorBotonBuscar;
     private javax.swing.JButton proveedorBotonCancelarEdicion;
     private javax.swing.JButton proveedorBotonDarDeBaja;
@@ -341,6 +382,7 @@ public class VistaProveedores extends javax.swing.JFrame {
     private javax.swing.JTextField proveedorTextFieldCuit;
     private javax.swing.JTextField proveedorTextFieldDireccion;
     private javax.swing.JTextField proveedorTextFieldEmail;
+    private javax.swing.JTextField proveedorTextFieldFiltro;
     private javax.swing.JTextField proveedorTextFieldNombre;
     private javax.swing.JTextField proveedorTextFieldProvincia;
     private javax.swing.JTextField proveedorTextFieldTelefono;
