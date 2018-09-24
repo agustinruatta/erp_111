@@ -13,6 +13,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.erp111.modelos.Proveedores;
 import org.erp111.servicios.ServicioProveedores;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 /**
  *
@@ -21,6 +23,8 @@ import org.erp111.servicios.ServicioProveedores;
 public class ServicioProveedoresTest {
 
     private ServicioProveedores servicioProveedores;
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void setUp() {
@@ -30,49 +34,74 @@ public class ServicioProveedoresTest {
     /**
      * ********** TEST NOMBRE ***************
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testNombreVacio() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Nombre vacio");
+        
         this.servicioProveedores.guardarProveedor("", "asd", "125", "125", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testNombreNumeros() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
         this.servicioProveedores.guardarProveedor("123", "asd", "125", "125", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testNombreSimbolos() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
         this.servicioProveedores.guardarProveedor("asd$", "asd", "125", "125", "asdsad", "asdsa");
     }
 
     /**
      * ********** TEST APELLIDO ***************
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testApellidoVacio() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Apellido vacio");
+        
         this.servicioProveedores.guardarProveedor("aasd", "", "125", "125", "asdsad", "asdsa");
+        
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testApellidoNumeros() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
         this.servicioProveedores.guardarProveedor("asds", "1231", "125", "125", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testApellidoSimbolos() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
         this.servicioProveedores.guardarProveedor("asd", "asd%", "125", "125", "asdsad", "asdsa");
     }
 
     /**
      * *********** TEST CUIT **************
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCuitVacio() {
-        this.servicioProveedores.guardarProveedor("aasd", "", "125", "125", "asdsad", "asdsa");
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Cuit vacio");
+        
+        this.servicioProveedores.guardarProveedor("aasd", "asds", "", "125", "asdsad", "asdsa");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testCuitLetras() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
         this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "125", "asdsad", "asdsa");
     }
 
