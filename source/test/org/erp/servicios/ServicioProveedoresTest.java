@@ -97,7 +97,7 @@ public class ServicioProveedoresTest {
         this.servicioProveedores.guardarProveedor("aasd", "asds", "", "125", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCuitLetras() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
@@ -105,43 +105,58 @@ public class ServicioProveedoresTest {
         this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "125", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCuitSimbolos() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
         this.servicioProveedores.guardarProveedor("asd", "asd", "125%", "125", "asdsad", "asdsa");
     }
 
     /**
      * *********** TEST TELEFONO **************
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testTelefonoVacio() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Telefono vacio");
+        
         this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testTelefonoLetras() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
         this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "asdasd", "asdsad", "asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testTelefonoSimbolos() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
         this.servicioProveedores.guardarProveedor("asd", "asd", "125", "$", "asdsad", "asdsa");
     }
 
     /**
-     * *********** TEST TELEFONO **************
+     * *********** TEST DIRECCION **************
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testDireccionVacio() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Direccion vacio");
+        
         this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12321", "", "asdsa");
     }
 
     /**
-     * *********** TEST TELEFONO **************
+     * *********** TEST CIUDAD **************
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCiudadVacio() {
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "");
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Ciudad vacio");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456", "asdsad", "");
     }
 
     @Test(expected = IllegalArgumentException.class)

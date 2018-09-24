@@ -15,10 +15,11 @@ public class Proveedores {
     private String email;
     private String direccion;
     private String ciudad;
+    private String provincia;
 
     //Constructor Proveedores//
 
-    public Proveedores(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad) {
+    public Proveedores(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cuit = cuit;
@@ -26,6 +27,7 @@ public class Proveedores {
         this.email = email;
         this.direccion = direccion;
         this.ciudad = ciudad;
+        this.provincia = provincia;
     }
   
     //Setters de Proveedores//
@@ -57,6 +59,12 @@ public class Proveedores {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+    
+    
     
     
     //Getters de Proveedores//
@@ -87,6 +95,10 @@ public class Proveedores {
 
     public String getCiudad() {
         return ciudad;
+    }
+
+    public String getProvincia() {
+        return provincia;
     }
     
     
