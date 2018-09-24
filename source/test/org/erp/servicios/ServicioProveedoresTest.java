@@ -156,36 +156,49 @@ public class ServicioProveedoresTest {
     public void testCiudadVacio() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Ciudad vacio");
+        
         this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456", "asdsad", "","asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCiudadNumeros() {
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "12312","asdsa");
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12324", "asdsad", "12312","asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testCiudadSimbolos() {
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "@","asdsa");
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12321", "asdsad", "@","asdsa");
     }
     
         /**
-     * *********** TEST CIUDAD **************
+     * *********** TEST PROVINCIA **************
      */
     @Test
     public void testProvinciaVacio() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Ciudad vacio");
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456", "asdsad", "","asdsa");
+        thrown.expectMessage("Provincia vacio");
+        
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456", "asdsad", "asdasd","");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testProvinciaNumeros() {
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "12312","asdsa");
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "1231", "asdsad", "12312","asdsa");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testProvinciaSimbolos() {
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "@","asdsa");
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Caracteres invalidos");
+        
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123123", "asdsad", "asd","@");
     }
 }
