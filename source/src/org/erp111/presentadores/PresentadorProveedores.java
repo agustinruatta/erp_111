@@ -47,7 +47,7 @@ public class PresentadorProveedores {
         
         
         try {
-            this.servicioProveedores.guardarProveedor(nombre, apellido, cuit, telefono, direccion, ciudad, provincia);
+            this.servicioProveedores.guardarProveedor(nombre, apellido, cuit, telefono,email, direccion, ciudad, provincia);
             //Limpiar Campos
             this.vistaProveedores.getNombreTextField().setText("");
             this.vistaProveedores.getApellidoTextField().setText("");

@@ -78,7 +78,7 @@ public class ServicioProveedores {
     /***************               METODOS              **********************/
     /*************************************************************************/
     
-    public void guardarProveedor(String nombre, String apellido, String cuit, String telefono, String direccion, String ciudad, String provincia){
+    public void guardarProveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia){
         //Validacion de los datos
         validarNombre(nombre);
         validarApellido(apellido);
@@ -87,5 +87,6 @@ public class ServicioProveedores {
         validarDireccion(direccion);
         validarCiudad(ciudad);
         validarProvincia(provincia);
+        //El Email no se valida!!!
     }
 }
