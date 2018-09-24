@@ -5,17 +5,20 @@
  */
 package org.erp111.vistas;
 
+import org.erp111.presentadores.PruebaPresentador;
+
 /**
  *
  * @author Laboratorio
  */
-public class pruebaCompra extends javax.swing.JPanel {
-
+public class PruebaCompra extends javax.swing.JPanel {
+    private PruebaPresentador pruebaPresentador;
     /**
      * Creates new form pruebaCompra
      */
-    public pruebaCompra() {
+    public PruebaCompra() {
         initComponents();
+        this.pruebaPresentador=new PruebaPresentador(this);
     }
 
     /**
@@ -360,4 +363,5 @@ public class pruebaCompra extends javax.swing.JPanel {
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
 }
