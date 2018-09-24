@@ -64,12 +64,21 @@ public class ServicioProveedores {
             throw new IllegalArgumentException("Caracteres invalidos");
         }
     }
+    
+    private void validarProvincia(String provincia) {
+        if (provincia.isEmpty() || provincia.trim().isEmpty()) {
+            throw new IllegalArgumentException("Provincia vacio");
+        }
+        if (!provincia.matches("([a-z]|[A-Z]|\\s)+")) {
+            throw new IllegalArgumentException("Caracteres invalidos");
+        }
+    }
 
     /*************************************************************************/
     /***************               METODOS              **********************/
     /*************************************************************************/
     
-    public void guardarProveedor(String nombre, String apellido, String cuit, String telefono, String direccion, String ciudad){
+    public void guardarProveedor(String nombre, String apellido, String cuit, String telefono, String direccion, String ciudad, String provincia){
         //Validacion de los datos
         validarNombre(nombre);
         validarApellido(apellido);
@@ -77,5 +86,6 @@ public class ServicioProveedores {
         validarTelefono(telefono);
         validarDireccion(direccion);
         validarCiudad(ciudad);
+        validarProvincia(provincia);
     }
 }
