@@ -1,5 +1,5 @@
 package org.erp111.modelos;
-// Generated 17/09/2018 15:42:20 by Hibernate Tools 4.3.1
+// Generated 25/09/2018 14:25:04 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,7 +12,8 @@ public class Proveedor  implements java.io.Serializable {
 
 
      private Integer codigoProveedor;
-     private String nombreApellido;
+     private String nombre;
+     private String apellido;
      private String cuit;
      private String telefono;
      private String email;
@@ -26,8 +27,9 @@ public class Proveedor  implements java.io.Serializable {
     }
 
 	
-    public Proveedor(String nombreApellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String rubro) {
-        this.nombreApellido = nombreApellido;
+    public Proveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String rubro) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.cuit = cuit;
         this.telefono = telefono;
         this.email = email;
@@ -36,8 +38,9 @@ public class Proveedor  implements java.io.Serializable {
         this.provincia = provincia;
         this.rubro = rubro;
     }
-    public Proveedor(String nombreApellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String rubro, Set compras) {
-       this.nombreApellido = nombreApellido;
+    public Proveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String rubro, Set compras) {
+       this.nombre = nombre;
+       this.apellido = apellido;
        this.cuit = cuit;
        this.telefono = telefono;
        this.email = email;
@@ -55,12 +58,19 @@ public class Proveedor  implements java.io.Serializable {
     public void setCodigoProveedor(Integer codigoProveedor) {
         this.codigoProveedor = codigoProveedor;
     }
-    public String getNombreApellido() {
-        return this.nombreApellido;
+    public String getNombre() {
+        return this.nombre;
     }
     
-    public void setNombreApellido(String nombreApellido) {
-        this.nombreApellido = nombreApellido;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getApellido() {
+        return this.apellido;
+    }
+    
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
     public String getCuit() {
         return this.cuit;

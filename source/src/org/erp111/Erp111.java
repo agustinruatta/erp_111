@@ -5,6 +5,17 @@
  */
 package org.erp111;
 
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import org.erp111.modelos.Cliente;
+import org.erp111.modelos.Proveedor;
+import org.erp111.modelos.Venta;
+import org.erp111.servicios.ServicioHibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 /**
  *
  * @author agu
@@ -16,6 +27,27 @@ public class Erp111 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Cliente cliente = new Cliente("cacho", "bailone", "31321", "asdas 123", "adsasdas", "32132153");
+        Date date = new Date();
+        cliente.setCodigoCliente(7);
+        Venta venta = new Venta(cliente, 333.22,date , 333.33);
+        //HashSet ventas = new HashSet();
+        //ventas.add(venta);
+        //cliente.setVentas(ventas);
+        
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        
+        try{
+            session.persist(venta);
+            tx.commit();
+            
+            
+        }catch(HibernateException e){
+            e.printStackTrace();
+        }finally{
+            session.close();
+        }
     }
     
 }
