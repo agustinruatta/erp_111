@@ -23,6 +23,7 @@ public class VistaVenta extends javax.swing.JFrame {
     public VistaVenta() {
         this.ventaPresentador = new VentaPresentador(this);
         initComponents();
+        this.ventaPresentador.llenarListaProductos();
     }
 
     public JList<String> getProductosList() {
@@ -88,32 +89,21 @@ public class VistaVenta extends javax.swing.JFrame {
 
         cancelarButton.setText("Cancelar");
 
-        productosList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        productosList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        productosList.setToolTipText("");
         jScrollPane2.setViewportView(productosList);
 
         productoLabel.setText("Producto:");
 
-        nombreProductoLabel.setText("jLabel2");
-
         codigoLabel.setText("Codigo:");
 
-        codigoProductoLabel.setText("jLabel1");
-
         costoUnitarioLabel.setText("Costo unitario:");
-
-        costoUnitarioProductoLabel.setText("jLabel1");
 
         cantidadLabel.setText("Cantidad:");
 
         unidadProductoLabel.setText("unidad");
 
         montoLabel.setText("Monto:");
-
-        montoProductoLabel.setText("jLabel2");
 
         agregarListaVentaButton.setText("Agregar a lista");
 

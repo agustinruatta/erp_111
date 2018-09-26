@@ -135,7 +135,11 @@ public class Producto  implements java.io.Serializable {
     public void setDetalleCompras(Set detalleCompras) {
         this.detalleCompras = detalleCompras;
     }
-
+    
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
 
 
 

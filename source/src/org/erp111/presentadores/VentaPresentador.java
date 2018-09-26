@@ -22,6 +22,7 @@ public class VentaPresentador {
     public VentaPresentador(VistaVenta vistaVenta){
         this.vistaVenta = vistaVenta;
         this.ventaServicio = new VentaServicio();
+        
     }
     
     //Llena la lista de productos en la vista de ventas
@@ -36,12 +37,12 @@ public class VentaPresentador {
             for(Producto producto: productos){
                 modeloLista.addElement(producto);
             }
-        
-            this.vistaVenta.setModeloListaProductos(modeloLista);
             
         }catch(RuntimeException e){
             System.out.println(e.getMessage());
             modeloLista.clear();
+            
+        }finally{
             this.vistaVenta.setModeloListaProductos(modeloLista);
         }
         

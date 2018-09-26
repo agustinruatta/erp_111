@@ -6,6 +6,7 @@
 package org.erp111.servicios;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.erp111.modelos.Producto;
 import org.erp111.repositorios.VentaRepositorio;
 
@@ -22,7 +23,13 @@ public class VentaServicio {
     }
     
     public ArrayList<Producto> getListaProductos(){
-        return this.ventaRepositorio.getListaProductos();
+        List<Producto> listaResultado = this.ventaRepositorio.getListaProductos();
+        ArrayList<Producto> productos = new ArrayList<>();
+        for(Producto producto : listaResultado){
+            System.out.println(producto.toString());
+            productos.add(producto);
+        }
+        return productos;
     }
     
 }
