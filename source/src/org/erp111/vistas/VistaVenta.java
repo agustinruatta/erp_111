@@ -6,6 +6,7 @@
 package org.erp111.vistas;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import org.erp111.presentadores.VentaPresentador;
 
@@ -26,7 +27,33 @@ public class VistaVenta extends javax.swing.JFrame {
         this.ventaPresentador.llenarListaProductos();
     }
 
-    public JList<String> getProductosList() {
+    public JLabel getCodigoProductoLabel() {
+        return codigoProductoLabel;
+    }
+
+    public JLabel getCostoUnitarioProductoLabel() {
+        return costoUnitarioProductoLabel;
+    }
+
+    public JLabel getMontoProductoLabel() {
+        return montoProductoLabel;
+    }
+
+    public JLabel getNombreProductoLabel() {
+        return nombreProductoLabel;
+    }
+
+    public JLabel getTotalLabel() {
+        return totalLabel;
+    }
+
+    public JLabel getUnidadProductoLabel() {
+        return unidadProductoLabel;
+    }
+
+    
+    
+    public JList getProductosList() {
         return this.productosList;
     }
 
@@ -91,6 +118,11 @@ public class VistaVenta extends javax.swing.JFrame {
 
         productosList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         productosList.setToolTipText("");
+        productosList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                productosListValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(productosList);
 
         productoLabel.setText("Producto:");
@@ -110,8 +142,6 @@ public class VistaVenta extends javax.swing.JFrame {
         quitarProductoButton.setText("Quitar");
 
         totalLabel.setText("Monto Total:");
-
-        montoVentaLabel.setText("jLabel1");
 
         javax.swing.GroupLayout ventaJPanelLayout = new javax.swing.GroupLayout(ventaJPanel);
         ventaJPanel.setLayout(ventaJPanelLayout);
@@ -234,6 +264,11 @@ public class VistaVenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void productosListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_productosListValueChanged
+        this.ventaPresentador.mostrarInformacionProducto();
+        
+    }//GEN-LAST:event_productosListValueChanged
 
     /**
      * @param args the command line arguments

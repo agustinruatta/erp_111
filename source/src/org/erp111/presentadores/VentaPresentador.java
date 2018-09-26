@@ -45,9 +45,16 @@ public class VentaPresentador {
         }finally{
             this.vistaVenta.setModeloListaProductos(modeloLista);
         }
-        
-       
     }
     
+    public void mostrarInformacionProducto(){
+        Producto producto = (Producto)this.vistaVenta.getProductosList().getSelectedValue();
+        this.vistaVenta.getNombreProductoLabel().setText(producto.getNombre());
+        this.vistaVenta.getCodigoProductoLabel().setText(producto.getCodigoProducto().toString());
+        this.vistaVenta.getCostoUnitarioProductoLabel().setText(String.valueOf(producto.getCosto()));
+        this.vistaVenta.getUnidadProductoLabel().setText(producto.getUnidad());
+        
+        this.vistaVenta.getMontoProductoLabel().setText("0");
+    }
      
 }

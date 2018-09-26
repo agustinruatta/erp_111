@@ -35,27 +35,5 @@ public class Erp111 {
         });
     }
     
-     /*Cliente cliente = new Cliente("anda la bd", "bailone", "31321", "asdas 123", "adsasdas", "32132153");
-        //Date date = new Date();
-        //cliente.setCodigoCliente(7);
-        //Venta venta = new Venta(cliente, 333.22,date , 333.33);
-        //HashSet ventas = new HashSet();
-        //ventas.add(venta);
-        //cliente.setVentas(ventas);
-        
-        Session session = ServicioHibernate.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        
-        try{
-            session.persist(cliente);
-            tx.commit();
-            
-            
-        }catch(HibernateException e){
-            e.printStackTrace();
-        }finally{
-            session.close();
-        }
-        
-    }*/
+
 }

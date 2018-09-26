@@ -32,7 +32,6 @@ public class VentaRepositorio {
         try{
             Query query = session.createQuery(QUERY_TODOS_LOS_PRODUCTOS);
             listaResultado = query.list();
-            mostrarLista(listaResultado);
             tx.commit();
             
             
@@ -45,10 +44,5 @@ public class VentaRepositorio {
     }
     
     
-    public void mostrarLista(List lista){
-        for(Object o : lista){
-            Producto producto = (Producto) o;
-            System.out.println(producto.getNombre());
-        }
-    }
+
 }
