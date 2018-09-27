@@ -15,7 +15,8 @@ detalle varchar(200)
 
 create table proveedor(
 codigo_proveedor int primary key not null auto_increment,
-nombre_apellido varchar(80) not null,
+nombre varchar(45) not null,
+apellido varchar(45) not null,
 cuit varchar(20) not null,
 telefono varchar(45) not null,
 email varchar(45) not null,
@@ -27,7 +28,8 @@ rubro varchar(45) not null
 
 create table cliente(
 codigo_cliente int primary key not null auto_increment,
-nombre_apellido varchar(45) not null,
+nombre varchar(45) not null,
+apellido varchar(45) not null,
 telefono varchar(45) not null,
 direccion varchar(45) not null,
 localidad varchar(45) not null,
