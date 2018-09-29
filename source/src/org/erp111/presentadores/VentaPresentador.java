@@ -5,6 +5,7 @@
  */
 package org.erp111.presentadores;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import org.erp111.modelos.Producto;
@@ -44,6 +45,21 @@ public class VentaPresentador {
             
         }finally{
             this.vistaVenta.setModeloListaProductos(modeloLista);
+        }
+    }
+    
+    public void calcularMonto(){
+        DecimalFormat df = new DecimalFormat("#.00");
+        
+        if(this.ventaServicio.esNumero(this.vistaVenta.getCantidadTextField().getText())){
+            double costoUnitario = Double.valueOf(this.vistaVenta.getCostoUnitarioProductoLabel().getText());
+            double cantidad = Double.valueOf(this.vistaVenta.getCantidadTextField().getText());
+            
+            String montoString = String.valueOf(df.format(costoUnitario*cantidad));
+            this.vistaVenta.getMontoProductoLabel().setText(montoString);
+            
+        }else{
+            this.vistaVenta.getMontoProductoLabel().setText("0");
         }
     }
     

@@ -8,6 +8,9 @@ package org.erp111.vistas;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import org.erp111.presentadores.VentaPresentador;
 
 /**
@@ -25,6 +28,7 @@ public class VistaVenta extends javax.swing.JFrame {
         this.ventaPresentador = new VentaPresentador(this);
         initComponents();
         this.ventaPresentador.llenarListaProductos();
+        agregarDocumentListener(this.cantidadTextField);
     }
 
     public JLabel getCodigoProductoLabel() {
@@ -51,7 +55,10 @@ public class VistaVenta extends javax.swing.JFrame {
         return unidadProductoLabel;
     }
 
-    
+    public JTextField getCantidadTextField() {
+        return cantidadTextField;
+    }
+
     
     public JList getProductosList() {
         return this.productosList;
@@ -269,13 +276,30 @@ public class VistaVenta extends javax.swing.JFrame {
         this.ventaPresentador.mostrarInformacionProducto();
         
     }//GEN-LAST:event_productosListValueChanged
-
+    
+    
     /**
      * @param args the command line arguments
      */
     
     public void llenarListaProductos(){
         this.ventaPresentador.llenarListaProductos();
+    }
+    private void agregarDocumentListener(JTextField textField){
+        textField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                ventaPresentador.calcularMonto();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                ventaPresentador.calcularMonto();
+            }
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                ventaPresentador.calcularMonto();
+            }
+        });
     }
     
     

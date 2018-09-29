@@ -1,9 +1,5 @@
 package org.erp111.modelos;
-<<<<<<< HEAD
-// Generated 25/09/2018 20:53:19 by Hibernate Tools 4.3.1
-=======
-// Generated 25/09/2018 14:25:04 by Hibernate Tools 4.3.1
->>>>>>> ea83eba1c5075aaf20137d56d6815ba56d7b0f1d
+
 
 
 import java.util.HashSet;
