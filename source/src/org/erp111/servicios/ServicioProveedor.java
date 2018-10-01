@@ -106,7 +106,7 @@ public class ServicioProveedor {
         
         //El Email no se valida!!!
         
-        Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia, "");
+        Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia);
         
         this.proveedorRepositorio.guardarProveedor(proveedor);
         

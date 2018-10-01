@@ -94,7 +94,7 @@ public class VistaProveedor extends javax.swing.JFrame {
             }
         });
 
-        proveedorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        proveedorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido", "Cuit", "Telefono", "Email", "Direccion", "Localidad", "Provincia" }));
         proveedorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedorComboBoxActionPerformed(evt);
@@ -173,10 +173,13 @@ public class VistaProveedor extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(proveedorLabelProvincia)
                                             .addComponent(proveedorLabelCiudad))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(proveedorTextFieldCiudad)
-                                            .addComponent(proveedorTextFieldProvincia)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(proveedorTextFieldProvincia))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(4, 4, 4)
+                                                .addComponent(proveedorTextFieldCiudad))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(proveedorLabelDireccion)

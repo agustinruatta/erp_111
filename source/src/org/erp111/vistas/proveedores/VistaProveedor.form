@@ -56,10 +56,15 @@
                                           <Component id="proveedorLabelProvincia" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="proveedorLabelCiudad" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="proveedorTextFieldCiudad" max="32767" attributes="0"/>
-                                          <Component id="proveedorTextFieldProvincia" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="proveedorTextFieldProvincia" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="proveedorTextFieldCiudad" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -264,11 +269,15 @@
     <Component class="javax.swing.JComboBox" name="proveedorComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="8">
+            <StringItem index="0" value="Nombre"/>
+            <StringItem index="1" value="Apellido"/>
+            <StringItem index="2" value="Cuit"/>
+            <StringItem index="3" value="Telefono"/>
+            <StringItem index="4" value="Email"/>
+            <StringItem index="5" value="Direccion"/>
+            <StringItem index="6" value="Localidad"/>
+            <StringItem index="7" value="Provincia"/>
           </StringArray>
         </Property>
       </Properties>

@@ -25,7 +25,7 @@ public void guardarProveedor(Proveedor proveedor){
 
         try {
             tx = session.beginTransaction();
-            session.persist(proveedor);
+            session.save(proveedor);
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {

@@ -32,9 +32,6 @@
         <property name="provincia" type="string">
             <column name="provincia" length="45" not-null="true" />
         </property>
-        <property name="rubro" type="string">
-            <column name="rubro" length="45" not-null="true" />
-        </property>
         <set name="compras" table="compra" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="proveedor" not-null="true" />

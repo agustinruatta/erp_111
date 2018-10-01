@@ -42,12 +42,12 @@ public class ProveedorPresentador {
         String telefono = this.vistaProveedores.getTelefonoTextField().getText();
         String email = this.vistaProveedores.getEmailTextField().getText();
         String direccion = this.vistaProveedores.getDireccionTextField().getText();
-        String ciudad = this.vistaProveedores.getCiudadTextField().getText();
+        String localidad = this.vistaProveedores.getCiudadTextField().getText();
         String provincia = this.vistaProveedores.getCiudadTextField().getText();
         
         //Intento guardar los datos, para ello debo validarlos
         try {
-            this.servicioProveedores.guardarProveedorRepositorio(nombre, apellido, cuit, telefono,email, direccion, ciudad, provincia);
+            this.servicioProveedores.guardarProveedorRepositorio(nombre, apellido, cuit, telefono,email, direccion, localidad, provincia);
         } catch (IllegalArgumentException exceptionValidarDatos) {
             JOptionPane.showMessageDialog(null ,exceptionValidarDatos.getMessage());
         }
