@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package org.erp111;
-
 import org.erp111.vistas.PruebaCompra;
 
 /**
@@ -17,12 +16,11 @@ public class Erp111 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {        
-            java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
+           java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PruebaCompra().setVisible(true);
-                }
-            });
+            }
+        });
         }
    } 
 
