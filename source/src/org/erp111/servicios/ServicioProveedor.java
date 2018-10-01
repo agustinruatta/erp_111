@@ -5,11 +5,27 @@
  */
 package org.erp111.servicios;
 
+import javax.swing.JOptionPane;
+import org.erp111.modelos.Proveedor;
+import org.erp111.repositorios.ProveedorRepositorio;
+import org.erp111.servicios.ServicioHibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
 /**
  *
  * @author brzig
  */
-public class ServicioProveedores {
+public class ServicioProveedor {
+    
+    ProveedorRepositorio proveedorRepositorio;
+
+    public ServicioProveedor() {
+        this.proveedorRepositorio = new ProveedorRepositorio();
+    }
+    
+    
 
     /*************************************************************************/
     /***************       VALIDACION DE CAMPOS         **********************/
@@ -78,7 +94,7 @@ public class ServicioProveedores {
     /***************               METODOS              **********************/
     /*************************************************************************/
     
-    public void guardarProveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia){
+    public void guardarProveedorRepositorio(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia){
         //Validacion de los datos
         validarNombre(nombre);
         validarApellido(apellido);
@@ -87,6 +103,13 @@ public class ServicioProveedores {
         validarDireccion(direccion);
         validarCiudad(ciudad);
         validarProvincia(provincia);
+        
         //El Email no se valida!!!
+        
+        Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia, "");
+        
+        this.proveedorRepositorio.guardarProveedor(proveedor);
+        
     }
+    
 }

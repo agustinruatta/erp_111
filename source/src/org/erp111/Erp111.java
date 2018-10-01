@@ -13,6 +13,7 @@ import org.erp111.modelos.Proveedor;
 import org.erp111.modelos.Venta;
 import org.erp111.servicios.ServicioHibernate;
 import org.erp111.vistas.VistaVenta;
+import org.erp111.vistas.proveedores.VistaProveedor;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -30,7 +31,7 @@ public class Erp111 {
         // TODO code application logic here
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaVenta().setVisible(true);
+                new VistaProveedor().setVisible(true);
             }
         });
     }
