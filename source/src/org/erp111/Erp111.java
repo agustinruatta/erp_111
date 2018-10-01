@@ -13,6 +13,7 @@ import org.erp111.modelos.Cliente;
 import org.erp111.modelos.Proveedor;
 import org.erp111.modelos.Venta;
 import org.erp111.servicios.ServicioHibernate;
+import org.erp111.vistas.Prueba;
 import org.erp111.vistas.VistaVenta;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -30,9 +31,8 @@ public class Erp111 {
     public static void main(String[] args) {        
            java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PruebaCompra().setVisible(true);
+                new Prueba().setVisible(true);
             }
         });
-        }
    } 
-
+}
