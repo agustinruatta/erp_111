@@ -39,7 +39,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Nombre vacio");
         
-        this.servicioProveedores.guardarProveedor("", "asd", "125", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("", "asd", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
@@ -47,7 +47,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("123", "asd", "125", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("123", "asd", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
@@ -55,7 +55,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("asd$", "asd", "125", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asd$", "asd", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     /**
@@ -66,7 +66,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Apellido vacio");
         
-        this.servicioProveedores.guardarProveedor("aasd", "", "125", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
         
     }
 
@@ -75,7 +75,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("asds", "1231", "125", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asds", "1231", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
@@ -83,7 +83,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("asd", "asd%", "125", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asd", "asd%", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     /**
@@ -94,7 +94,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Cuit vacio");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asds", "", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "asds", "", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
@@ -102,7 +102,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
@@ -110,7 +110,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("asd", "asd", "125%", "125", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asd", "asd", "125%", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     /**
@@ -121,21 +121,21 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Telefono vacio");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
     public void testTelefonoLetras() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
-        this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "asdasd", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asds", "1231", "asdas", "asdasd","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
     public void testTelefonoSimbolos() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
-        this.servicioProveedores.guardarProveedor("asd", "asd", "125", "$", "asdsad", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("asd", "asd", "125", "$","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     /**
@@ -146,7 +146,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Direccion vacio");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12321", "", "asdsa","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12321","asdsad", "", "asdsa","asdsa");
     }
 
     /**
@@ -155,16 +155,15 @@ public class ServicioProveedoresTest {
     @Test
     public void testCiudadVacio() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Ciudad vacio");
-        
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456", "asdsad", "","asdsa");
+        thrown.expectMessage("Ciudad vacio");       
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456","asdsad", "asdsad", "","asdsa");
     }
 
     @Test
     public void testCiudadNumeros() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12324", "asdsad", "12312","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12324","asdsad", "asdsad", "12312","asdsa");
     }
 
     @Test
@@ -172,7 +171,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12321", "asdsad", "@","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "12321","asdsad", "asdsad", "@","asdsa");
     }
     
         /**
@@ -183,7 +182,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Provincia vacio");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456", "asdsad", "asdasd","");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123456","asdsad", "asdsad", "asdasd","");
     }
 
     @Test
@@ -191,7 +190,7 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "1231", "asdsad", "12312","asdsa");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "1231","asdsad", "asdsad", "12312","asdsa");
     }
 
     @Test
@@ -199,6 +198,6 @@ public class ServicioProveedoresTest {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Caracteres invalidos");
         
-        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123123", "asdsad", "asd","@");
+        this.servicioProveedores.guardarProveedor("aasd", "asdas", "125", "123123","asdsad", "asdsad", "asd","@");
     }
 }

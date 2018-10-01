@@ -35,6 +35,7 @@ public class PresentadorProveedores {
     }
     
     public void botonGuardarApretado(){
+        //Tomo los datos ingresados por el usuario
         String nombre = this.vistaProveedores.getNombreTextField().getText();
         String apellido = this.vistaProveedores.getApellidoTextField().getText();
         String cuit = this.vistaProveedores.getCuitTextField().getText();
@@ -44,11 +45,14 @@ public class PresentadorProveedores {
         String ciudad = this.vistaProveedores.getCiudadTextField().getText();
         String provincia = this.vistaProveedores.getCiudadTextField().getText();
         
-        
-        
+        //Intento guardar los datos, para ello debo validarlos
         try {
             this.servicioProveedores.guardarProveedor(nombre, apellido, cuit, telefono,email, direccion, ciudad, provincia);
-            //Limpiar Campos
+        } catch (IllegalArgumentException exceptionValidarDatos) {
+            JOptionPane.showMessageDialog(null ,exceptionValidarDatos.getMessage());
+        }
+
+        //Limpiar Campos
             this.vistaProveedores.getNombreTextField().setText("");
             this.vistaProveedores.getApellidoTextField().setText("");
             this.vistaProveedores.getCuitTextField().setText("");
@@ -57,12 +61,7 @@ public class PresentadorProveedores {
             this.vistaProveedores.getDireccionTextField().setText("");
             this.vistaProveedores.getCiudadTextField().setText("");
             this.vistaProveedores.getProvinciaTextField().setText("");
-        } catch (IllegalArgumentException exceptionValidarDatos) {
-            JOptionPane.showMessageDialog(null ,exceptionValidarDatos.getMessage());
-        }
-
-        
-    }
+   }
     
     public void botonCancelarEdicionApretado(){
         
