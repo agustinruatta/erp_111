@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package org.erp111;
-import org.erp111.vistas.PruebaCompra;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;

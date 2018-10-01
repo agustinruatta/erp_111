@@ -5,16 +5,16 @@
  */
 package org.erp111.presentadores;
 
-import org.erp111.vistas.PruebaCompra;
+import org.erp111.vistas.Prueba;
 
 /**
  *
  * @author Joa
  */
 public class PruebaPresentador {
-    private PruebaCompra pruebaCompra;
+    private Prueba prueba;
     
-    public PruebaPresentador(PruebaCompra pruebaCompra){
-        this.pruebaCompra=pruebaCompra;
+    public PruebaPresentador(Prueba prueba){
+        this.prueba=prueba;
     }
 }
