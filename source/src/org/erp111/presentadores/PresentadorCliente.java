@@ -27,7 +27,8 @@ public class PresentadorCliente {
     }
     public void GuardarClientes(){
         //Obtenemos los datos
-        String NombreApellido = this.vistaClientes.getNombreApellidoTextField().getText();
+        String Nombre = this.vistaClientes.getNombreTextField().getText();
+        String Apellido = this.vistaClientes.getApellidoTextField().getText();
         String Telefono = this.vistaClientes.getTelefonoTextField().getText();
         String Direccion = this.vistaClientes.getDireccion().getText();
         String Localidad = this.vistaClientes.getLocalidad().getText();
@@ -35,10 +36,11 @@ public class PresentadorCliente {
         
         try{
             //intenta guardar los datos
-            this.serviciosClientes.GuardarDatosClientes(NombreApellido,Telefono,Direccion,Localidad,CUIT);
+            this.serviciosClientes.GuardarDatosClientes(Nombre,Apellido,Telefono,Direccion,Localidad,CUIT);
             
        //limpia los campos
-        this.vistaClientes.getNombreApellidoTextField().setText("");
+        this.vistaClientes.getNombreTextField().setText("");
+        this.vistaClientes.getApellidoTextField().setText("");
         this.vistaClientes.getTelefonoTextField().setText("");
         this.vistaClientes.getDireccion().setText("");
         this.vistaClientes.getLocalidad().setText("");

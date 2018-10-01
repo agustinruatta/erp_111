@@ -6,7 +6,7 @@
 package org.erp111.servicios;
 
 import org.erp111.repositorios.RepositorioClientes;
-import org.erp111.modelos.ModeloClientes;
+import org.erp111.modelos.Cliente;
 /**
  *
  * @author Laboratorio
@@ -19,13 +19,19 @@ public class ServiciosClientes {
         this.repositorioClientes = new RepositorioClientes();
     }
     
-    public void ValidarNombreApellido(String NombreApellido){
-        if(NombreApellido.length()==0)
+    public void ValidarNombre(String Nombre){
+        if(Nombre.length()==0)
         {
             throw new IllegalArgumentException("El nombre esta vacio");
         }       
     }
-     public void ValidarTelefono(String Telefono){
+    public void ValidarApellido(String Apellido){
+        if(Apellido.length()==0)
+        {
+            throw new IllegalArgumentException("El apellido esta vacio");
+        }
+    }
+         public void ValidarTelefono(String Telefono){
         if(Telefono.length()==0)
         {
             throw new IllegalArgumentException("El telefono esta vacio");
@@ -49,15 +55,18 @@ public class ServiciosClientes {
             throw new IllegalArgumentException("El CUIT esta vacio");
         }       
     }
-        public void GuardarDatosClientes(String NombreApellido,String Telefono,String Direccion,String Localidad,String CUIT)
+        public void GuardarDatosClientes(String Nombre,String Apellido,String Telefono,String Direccion,String Localidad,String CUIT)
         {
-            this.ValidarNombreApellido(NombreApellido);
+            this.ValidarNombre(Nombre);
+            this.ValidarApellido(Apellido);
             this.ValidarDireccion(Direccion);
             this.ValidarLocalidad(Localidad);
             this.ValidarTelefono(Telefono);
             this.ValidarCUIT(CUIT);
+                       
+            Cliente clientes = new Cliente(Nombre,Apellido, Telefono, Direccion, Localidad, CUIT);
             
-            ModeloClientes clientes = new ModeloClientes(NombreApellido, Telefono, Direccion, Localidad, CUIT);
+            this.repositorioClientes.guardar(clientes);
         }
         
         

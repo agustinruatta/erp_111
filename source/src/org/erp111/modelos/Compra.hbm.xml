@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/09/2018 14:25:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="org.erp111.modelos.Compra" table="compra" catalog="erp_111" optimistic-lock="version">
+        <id name="codigoCompra" type="java.lang.Integer">
+            <column name="codigo_compra" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="producto" class="org.erp111.modelos.Producto" fetch="select">
+            <column name="producto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proveedor" class="org.erp111.modelos.Proveedor" fetch="select">
+            <column name="proveedor" not-null="true" />
+        </many-to-one>
+        <property name="montoTotal" type="double">
+            <column name="monto_total" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <set name="detalleCompras" table="detalle_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="compra" not-null="true" />
+            </key>
+            <one-to-many class="org.erp111.modelos.DetalleCompra" />
+        </set>
+    </class>
+</hibernate-mapping>
