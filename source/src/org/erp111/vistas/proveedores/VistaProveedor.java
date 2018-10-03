@@ -5,7 +5,9 @@
  */
 package org.erp111.vistas.proveedores;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import org.erp111.presentadores.ProveedorPresentador;
+import org.erp111.servicios.ServicioProveedor;
 
 /**
  *
@@ -13,12 +15,14 @@ import org.erp111.presentadores.ProveedorPresentador;
  */
 public class VistaProveedor extends javax.swing.JFrame {
     private ProveedorPresentador presentadorProveedores;
+    private ServicioProveedor servicioProveedor;
     
     
     
     public VistaProveedor() {
         initComponents();
         this.presentadorProveedores = new ProveedorPresentador(this);
+        this.servicioProveedor = new ServicioProveedor();
     }
 
     /**
@@ -68,9 +72,17 @@ public class VistaProveedor extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Apellido", "Razon Social", "Telefono", "Email", "Direccion", "Ciudad", "Provincia"
+                "Nombre", "Apellido", "Cuit", "Telefono", "Email", "Direccion", "Ciudad", "Provincia"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(proveedorTable);
 
         proveedorBotonEditar.setText("Editar");
@@ -297,6 +309,10 @@ public class VistaProveedor extends javax.swing.JFrame {
     public JTextField getProvinciaTextField() {
         
         return proveedorTextFieldProvincia;
+    }
+    
+    public void setModeloTabla(){
+        this.proveedorTable.setModel(servicioProveedor.mostrarProveedorRepositorio());
     }
     
     private void proveedorBotonDarDeBajaApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonDarDeBajaApretado

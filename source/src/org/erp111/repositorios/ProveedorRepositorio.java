@@ -5,6 +5,7 @@
  */
 package org.erp111.repositorios;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.erp111.modelos.Proveedor;
 import org.erp111.servicios.ServicioHibernate;
@@ -37,6 +38,26 @@ public void guardarProveedor(Proveedor proveedor){
         }
         JOptionPane.showMessageDialog(null, "Guardado con exito!");
 }    
+
+public ArrayList<Proveedor> obtenerProveedor(){
+    Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Proveedor> proveedor = null;
+
+        try {
+            tx = session.beginTransaction();
+            proveedor = (ArrayList<Proveedor>) session.createQuery("FROM Proveedor").list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return proveedor;
+}
 
     
 }

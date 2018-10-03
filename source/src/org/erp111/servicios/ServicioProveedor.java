@@ -5,31 +5,33 @@
  */
 package org.erp111.servicios;
 
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 import org.erp111.modelos.Proveedor;
 import org.erp111.repositorios.ProveedorRepositorio;
-import org.erp111.servicios.ServicioHibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 /**
  *
  * @author brzig
  */
 public class ServicioProveedor {
-    
+
     ProveedorRepositorio proveedorRepositorio;
 
     public ServicioProveedor() {
         this.proveedorRepositorio = new ProveedorRepositorio();
     }
-    
-    
 
-    /*************************************************************************/
-    /***************       VALIDACION DE CAMPOS         **********************/
-    /*************************************************************************/
+    /**
+     * **********************************************************************
+     */
+    /**
+     * ************* VALIDACION DE CAMPOS *********************
+     */
+    /**
+     * **********************************************************************
+     */
     private void validarNombre(String nombre) {
         if (nombre.isEmpty() || nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("Nombre vacio");
@@ -65,13 +67,13 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Caracteres invalidos");
         }
     }
-    
+
     private void validarDireccion(String direccion) {
         if (direccion.isEmpty() || direccion.trim().isEmpty()) {
             throw new IllegalArgumentException("Direccion vacio");
         }
     }
-    
+
     private void validarCiudad(String ciudad) {
         if (ciudad.isEmpty() || ciudad.trim().isEmpty()) {
             throw new IllegalArgumentException("Ciudad vacio");
@@ -80,7 +82,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Caracteres invalidos");
         }
     }
-    
+
     private void validarProvincia(String provincia) {
         if (provincia.isEmpty() || provincia.trim().isEmpty()) {
             throw new IllegalArgumentException("Provincia vacio");
@@ -90,11 +92,16 @@ public class ServicioProveedor {
         }
     }
 
-    /*************************************************************************/
-    /***************               METODOS              **********************/
-    /*************************************************************************/
-    
-    public void guardarProveedorRepositorio(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia){
+    /**
+     * **********************************************************************
+     */
+    /**
+     * ************* METODOS *********************
+     */
+    /**
+     * **********************************************************************
+     */
+    public void guardarProveedorRepositorio(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia) {
         //Validacion de los datos
         validarNombre(nombre);
         validarApellido(apellido);
@@ -103,13 +110,28 @@ public class ServicioProveedor {
         validarDireccion(direccion);
         validarCiudad(ciudad);
         validarProvincia(provincia);
-        
+
         //El Email no se valida!!!
-        
         Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia);
-        
+
         this.proveedorRepositorio.guardarProveedor(proveedor);
-        
+
     }
-    
+
+    public DefaultTableModel mostrarProveedorRepositorio() {
+        ArrayList<Proveedor> proveedor = proveedorRepositorio.obtenerProveedor();
+        DefaultTableModel modeloTabla = new DefaultTableModel();
+        for (Proveedor proveedorSeleccionado : proveedor) {
+            String[] proveedorFila = {proveedorSeleccionado.getNombre(),
+                proveedorSeleccionado.getApellido(),
+                proveedorSeleccionado.getCuit(),
+                proveedorSeleccionado.getTelefono(),
+                proveedorSeleccionado.getEmail(),
+                proveedorSeleccionado.getDireccion(),
+                proveedorSeleccionado.getLocalidad(),
+                proveedorSeleccionado.getProvincia()};
+            modeloTabla.insertRow(0,proveedorFila);
+        }
+        return modeloTabla;
+    }
 }

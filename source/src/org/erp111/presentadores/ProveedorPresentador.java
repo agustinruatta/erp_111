@@ -6,6 +6,7 @@
 package org.erp111.presentadores;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import org.erp111.vistas.proveedores.VistaProveedor;
 import org.erp111.servicios.ServicioProveedor;
 
@@ -15,15 +16,16 @@ import org.erp111.servicios.ServicioProveedor;
  */
 public class ProveedorPresentador {
     private VistaProveedor vistaProveedores;
-    private ServicioProveedor servicioProveedores;
+    private ServicioProveedor servicioProveedor;
     
     public ProveedorPresentador (VistaProveedor vistaProveedores){
         this.vistaProveedores = vistaProveedores;
-        this.servicioProveedores = new ServicioProveedor();
+        this.servicioProveedor = new ServicioProveedor();
     }
     
     public void botonBuscarApretado(){
-        
+        DefaultTableModel modeloTabla = this.servicioProveedor.mostrarProveedorRepositorio();
+        this.vistaProveedores.setModeloTabla();
     }
     
     public void botonEditarApretado(){
@@ -47,7 +49,7 @@ public class ProveedorPresentador {
         
         //Intento guardar los datos, para ello debo validarlos
         try {
-            this.servicioProveedores.guardarProveedorRepositorio(nombre, apellido, cuit, telefono,email, direccion, localidad, provincia);
+            this.servicioProveedor.guardarProveedorRepositorio(nombre, apellido, cuit, telefono,email, direccion, localidad, provincia);
         } catch (IllegalArgumentException exceptionValidarDatos) {
             JOptionPane.showMessageDialog(null ,exceptionValidarDatos.getMessage());
         }
