@@ -8,6 +8,8 @@ package org.erp111.presentadores;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import org.erp111.modelos.Producto;
 import org.erp111.servicios.VentaServicio;
 import org.erp111.vistas.VistaVenta;
@@ -19,6 +21,11 @@ import org.erp111.vistas.VistaVenta;
 public class VentaPresentador {
     private VistaVenta vistaVenta;
     private VentaServicio ventaServicio;
+    private final int COLUMNA_CODIGO = 0;
+    private final int COLUMNA_NOMBRE = 1;
+    private final int COLUMNA_PRECIO_UNITARIO = 2;
+    private final int COLUMNA_CANTIDAD = 3;
+    private final int COLUMNA_MONTO = 4;
     
     public VentaPresentador(VistaVenta vistaVenta){
         this.vistaVenta = vistaVenta;
@@ -72,5 +79,16 @@ public class VentaPresentador {
         
         this.vistaVenta.getMontoProductoLabel().setText("0");
     }
-     
+    
+    public void agregarProductoATabla(){
+        TableModel modeloTabla = this.vistaVenta.getTableModel();
+        Producto producto = (Producto)this.vistaVenta.getProductosList().getSelectedValue();
+        //ver si no hay producto seleccionado
+        
+        modeloTabla.setValueAt(producto., COLUMNA_CODIGO, COLUMNA_CODIGO);
+        
+        
+        
+    }
+    
 }

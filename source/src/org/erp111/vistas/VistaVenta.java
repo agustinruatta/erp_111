@@ -11,6 +11,7 @@ import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.TableModel;
 import org.erp111.presentadores.VentaPresentador;
 
 /**
@@ -68,6 +69,10 @@ public class VistaVenta extends javax.swing.JFrame {
         this.productosList.setModel(modeloListaProductos);
     }
     
+    public TableModel getTableModel(){
+        return this.listaVentaTable.getModel();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,15 +113,24 @@ public class VistaVenta extends javax.swing.JFrame {
 
         listaVentaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Nombre", "Precio Unitario", "Cantidad", "Monto"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        listaVentaTable.setToolTipText("");
         jScrollPane1.setViewportView(listaVentaTable);
 
         realizarVentaButton.setText("Realizar Venta");
@@ -145,6 +159,11 @@ public class VistaVenta extends javax.swing.JFrame {
         montoLabel.setText("Monto:");
 
         agregarListaVentaButton.setText("Agregar a lista");
+        agregarListaVentaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarListaVentaButtonActionPerformed(evt);
+            }
+        });
 
         quitarProductoButton.setText("Quitar");
 
@@ -276,6 +295,10 @@ public class VistaVenta extends javax.swing.JFrame {
         this.ventaPresentador.mostrarInformacionProducto();
         
     }//GEN-LAST:event_productosListValueChanged
+
+    private void agregarListaVentaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarListaVentaButtonActionPerformed
+        this.ventaPresentador.agregarProductoATabla();
+    }//GEN-LAST:event_agregarListaVentaButtonActionPerformed
     
     
     /**
