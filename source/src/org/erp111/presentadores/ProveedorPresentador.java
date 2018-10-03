@@ -50,11 +50,7 @@ public class ProveedorPresentador {
         //Intento guardar los datos, para ello debo validarlos
         try {
             this.servicioProveedor.guardarProveedorRepositorio(nombre, apellido, cuit, telefono,email, direccion, localidad, provincia);
-        } catch (IllegalArgumentException exceptionValidarDatos) {
-            JOptionPane.showMessageDialog(null ,exceptionValidarDatos.getMessage());
-        }
-
-        //Limpiar Campos
+            //Limpiar Campos
             this.vistaProveedores.getNombreTextField().setText("");
             this.vistaProveedores.getApellidoTextField().setText("");
             this.vistaProveedores.getCuitTextField().setText("");
@@ -63,6 +59,11 @@ public class ProveedorPresentador {
             this.vistaProveedores.getDireccionTextField().setText("");
             this.vistaProveedores.getCiudadTextField().setText("");
             this.vistaProveedores.getProvinciaTextField().setText("");
+        } catch (IllegalArgumentException exceptionValidarDatos) {
+            JOptionPane.showMessageDialog(null ,exceptionValidarDatos.getMessage());
+        }
+
+        
    }
     
     public void botonCancelarEdicionApretado(){
