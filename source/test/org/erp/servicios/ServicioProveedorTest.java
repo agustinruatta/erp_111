@@ -45,7 +45,7 @@ public class ServicioProveedorTest {
     @Test
     public void testNombreNumeros() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Nombre");
         
         this.servicioProveedores.guardarProveedorRepositorio("123", "asd", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
@@ -53,7 +53,7 @@ public class ServicioProveedorTest {
     @Test
     public void testNombreSimbolos() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Nombre");
         
         this.servicioProveedores.guardarProveedorRepositorio("asd$", "asd", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
@@ -73,7 +73,7 @@ public class ServicioProveedorTest {
     @Test
     public void testApellidoNumeros() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Apellido");
         
         this.servicioProveedores.guardarProveedorRepositorio("asds", "1231", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
@@ -81,7 +81,7 @@ public class ServicioProveedorTest {
     @Test
     public void testApellidoSimbolos() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Apellido");
         
         this.servicioProveedores.guardarProveedorRepositorio("asd", "asd%", "125", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
@@ -100,15 +100,14 @@ public class ServicioProveedorTest {
     @Test
     public void testCuitLetras() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
-        
-        this.servicioProveedores.guardarProveedorRepositorio("asds", "1231", "asdas", "125","asdsad", "asdsad", "asdsa","asdsa");
+        thrown.expectMessage("Caracteres invalidos Cuit");       
+        this.servicioProveedores.guardarProveedorRepositorio("asds", "asdasda", "asdas", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
     public void testCuitSimbolos() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Cuit");
         
         this.servicioProveedores.guardarProveedorRepositorio("asd", "asd", "125%", "125","asdsad", "asdsad", "asdsa","asdsa");
     }
@@ -127,14 +126,14 @@ public class ServicioProveedorTest {
     @Test
     public void testTelefonoLetras() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
-        this.servicioProveedores.guardarProveedorRepositorio("asds", "1231", "asdas", "asdasd","asdsad", "asdsad", "asdsa","asdsa");
+        thrown.expectMessage("Caracteres invalidos Telefono");
+        this.servicioProveedores.guardarProveedorRepositorio("asds", "asdsad", "12314", "asdasd","asdsad", "asdsad", "asdsa","asdsa");
     }
 
     @Test
     public void testTelefonoSimbolos() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Telefono");
         this.servicioProveedores.guardarProveedorRepositorio("asd", "asd", "125", "$","asdsad", "asdsad", "asdsa","asdsa");
     }
 
@@ -162,14 +161,14 @@ public class ServicioProveedorTest {
     @Test
     public void testCiudadNumeros() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Ciudad");
         this.servicioProveedores.guardarProveedorRepositorio("aasd", "asdas", "125", "12324","asdsad", "asdsad", "12312","asdsa");
     }
 
     @Test
     public void testCiudadSimbolos() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Ciudad");
         
         this.servicioProveedores.guardarProveedorRepositorio("aasd", "asdas", "125", "12321","asdsad", "asdsad", "@","asdsa");
     }
@@ -188,15 +187,15 @@ public class ServicioProveedorTest {
     @Test
     public void testProvinciaNumeros() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Provincia");
         
-        this.servicioProveedores.guardarProveedorRepositorio("aasd", "asdas", "125", "1231","asdsad", "asdsad", "12312","asdsa");
+        this.servicioProveedores.guardarProveedorRepositorio("aasd", "asdas", "125", "1231","asdsad", "asdsad","asdsa", "12312");
     }
 
     @Test
     public void testProvinciaSimbolos() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Caracteres invalidos");
+        thrown.expectMessage("Caracteres invalidos Provincia");
         
         this.servicioProveedores.guardarProveedorRepositorio("aasd", "asdas", "125", "123123","asdsad", "asdsad", "asd","@");
     }

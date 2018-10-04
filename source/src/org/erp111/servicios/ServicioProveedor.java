@@ -37,7 +37,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Nombre vacio");
         }
         if (!nombre.matches("([a-z]|[A-Z]|\\s)+")) {
-            throw new IllegalArgumentException("Caracteres invalidos");
+            throw new IllegalArgumentException("Caracteres invalidos Nombre");
         }
     }
 
@@ -46,7 +46,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Apellido vacio");
         }
         if (!apellido.matches("([a-z]|[A-Z]|\\s)+")) {
-            throw new IllegalArgumentException("Caracteres invalidos");
+            throw new IllegalArgumentException("Caracteres invalidos Apellido");
         }
     }
 
@@ -55,7 +55,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Cuit vacio");
         }
         if (!cuit.matches("[0-9]+")) {
-            throw new IllegalArgumentException("Caracteres invalidos");
+            throw new IllegalArgumentException("Caracteres invalidos Cuit");
         }
     }
 
@@ -64,7 +64,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Telefono vacio");
         }
         if (!telefono.matches("[0-9]+")) {
-            throw new IllegalArgumentException("Caracteres invalidos");
+            throw new IllegalArgumentException("Caracteres invalidos Telefono");
         }
     }
 
@@ -79,7 +79,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Ciudad vacio");
         }
         if (!ciudad.matches("([a-z]|[A-Z]|\\s)+")) {
-            throw new IllegalArgumentException("Caracteres invalidos");
+            throw new IllegalArgumentException("Caracteres invalidos Ciudad");
         }
     }
 
@@ -88,7 +88,7 @@ public class ServicioProveedor {
             throw new IllegalArgumentException("Provincia vacio");
         }
         if (!provincia.matches("([a-z]|[A-Z]|\\s)+")) {
-            throw new IllegalArgumentException("Caracteres invalidos");
+            throw new IllegalArgumentException("Caracteres invalidos Provincia");
         }
     }
 
