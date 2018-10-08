@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package org.erp111.vistas.proveedores;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.erp111.presentadores.ProveedorPresentador;
-import org.erp111.servicios.ServicioProveedor;
+import org.erp111.modelos.Proveedor;
 
 /**
  *
@@ -15,14 +16,12 @@ import org.erp111.servicios.ServicioProveedor;
  */
 public class VistaProveedor extends javax.swing.JFrame {
     private ProveedorPresentador presentadorProveedores;
-    private ServicioProveedor servicioProveedor;
     
     
     
     public VistaProveedor() {
         initComponents();
         this.presentadorProveedores = new ProveedorPresentador(this);
-        this.servicioProveedor = new ServicioProveedor();
     }
 
     /**
@@ -67,10 +66,7 @@ public class VistaProveedor extends javax.swing.JFrame {
 
         proveedorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Nombre", "Apellido", "Cuit", "Telefono", "Email", "Direccion", "Ciudad", "Provincia"
@@ -342,10 +338,12 @@ public class VistaProveedor extends javax.swing.JFrame {
         
         return proveedorTextFieldProvincia;
     }
-    
-    public void setModeloTabla(){
-        this.proveedorTable.setModel(servicioProveedor.mostrarProveedorRepositorio());
+
+    public JTable getProveedorTable() {
+        return proveedorTable;
     }
+    
+    
     
     private void proveedorBotonDarDeBajaApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonDarDeBajaApretado
         this.presentadorProveedores.botonDarDeBajaApretado();

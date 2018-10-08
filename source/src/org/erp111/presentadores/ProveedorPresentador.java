@@ -5,8 +5,12 @@
  */
 package org.erp111.presentadores;
 
+import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.erp111.modelos.Proveedor;
+import org.erp111.repositorios.ProveedorRepositorio;
 import org.erp111.vistas.proveedores.VistaProveedor;
 import org.erp111.servicios.ServicioProveedor;
 
@@ -24,8 +28,33 @@ public class ProveedorPresentador {
     }
     
     public void botonBuscarApretado(){
-        DefaultTableModel modeloTabla = this.servicioProveedor.mostrarProveedorRepositorio();
-        this.vistaProveedores.setModeloTabla();
+        ArrayList<Proveedor> proveedores = this.servicioProveedor.getProveedores("", "");
+        
+        this.rellenarTablaProveedores(proveedores);
+    }
+    
+    public void rellenarTablaProveedores(ArrayList<Proveedor> proveedores) {
+        DefaultTableModel modelo = (DefaultTableModel) this.vistaProveedores.getProveedorTable().getModel();
+        
+        //Limpiar tabla con datos previos
+        modelo.setRowCount(0);
+        
+        for (int numeroFila = 0; numeroFila < proveedores.size(); numeroFila++) {
+            Proveedor proveedorSeleccionado = proveedores.get(numeroFila);
+            
+            String fila[] = {
+                proveedorSeleccionado.getNombre(),
+                proveedorSeleccionado.getApellido(),
+                proveedorSeleccionado.getCuit(),
+                proveedorSeleccionado.getTelefono(),
+                proveedorSeleccionado.getEmail(),
+                proveedorSeleccionado.getDireccion(),
+                proveedorSeleccionado.getLocalidad(),
+                proveedorSeleccionado.getProvincia()
+            };
+            
+            modelo.addRow(fila);
+        }
     }
     
     public void botonEditarApretado(){
