@@ -28,7 +28,7 @@ public class ProveedorPresentador {
     }
     
     public void botonBuscarApretado(){
-        ArrayList<Proveedor> proveedores = this.servicioProveedor.getProveedores("", "");
+        ArrayList<Proveedor> proveedores = this.servicioProveedor.getProveedores("", "Ignacio");
         
         this.rellenarTablaProveedores(proveedores);
     }

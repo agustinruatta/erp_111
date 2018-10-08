@@ -48,11 +48,11 @@ public class ProveedorRepositorio {
         try {
             tx = session.beginTransaction();
             
-            Query consultaHQL = session.createQuery("FROM Proveedor ");
+            //Query consultaHQL = session.createQuery("FROM Proveedor ");
 
-            //Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.nombre LIKE :consulta");
+            Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.nombre LIKE :consulta");
 
-            //consultaHQL.setParameter("consulta", "\"%" + consulta + "%\"");
+            consultaHQL.setParameter("consulta", "%" + consulta + "%");
 
             //consultaHQL.setParameter("filtro", "Nombre");
 
