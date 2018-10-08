@@ -6,8 +6,6 @@
 package org.erp111.servicios;
 
 import java.util.ArrayList;
-import java.util.Vector;
-import javax.swing.table.DefaultTableModel;
 import org.erp111.modelos.Proveedor;
 import org.erp111.repositorios.ProveedorRepositorio;
 
@@ -117,21 +115,8 @@ public class ServicioProveedor {
         this.proveedorRepositorio.guardarProveedor(proveedor);
 
     }
-
-    public DefaultTableModel mostrarProveedorRepositorio() {
-        ArrayList<Proveedor> proveedor = proveedorRepositorio.obtenerProveedor();
-        DefaultTableModel modeloTabla = new DefaultTableModel();
-        for (Proveedor proveedorSeleccionado : proveedor) {
-            String[] proveedorFila = {proveedorSeleccionado.getNombre(),
-                proveedorSeleccionado.getApellido(),
-                proveedorSeleccionado.getCuit(),
-                proveedorSeleccionado.getTelefono(),
-                proveedorSeleccionado.getEmail(),
-                proveedorSeleccionado.getDireccion(),
-                proveedorSeleccionado.getLocalidad(),
-                proveedorSeleccionado.getProvincia()};
-            modeloTabla.insertRow(0,proveedorFila);
-        }
-        return modeloTabla;
+    
+    public ArrayList<Proveedor> getProveedores(String filtro, String consulta) {
+        return this.proveedorRepositorio.obtenerProveedores(filtro, consulta);
     }
 }

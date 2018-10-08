@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import org.erp111.modelos.Proveedor;
 import org.erp111.servicios.ServicioHibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -18,9 +19,9 @@ import org.hibernate.Transaction;
  * @author brzig
  */
 public class ProveedorRepositorio {
-    
-public void guardarProveedor(Proveedor proveedor){
-    //Guardar proveedor en la base de datos
+
+    public void guardarProveedor(Proveedor proveedor) {
+        //Guardar proveedor en la base de datos
         Session session = ServicioHibernate.getSessionFactory().openSession();
         Transaction tx = null;
 
@@ -37,16 +38,25 @@ public void guardarProveedor(Proveedor proveedor){
             session.close();
         }
         JOptionPane.showMessageDialog(null, "Guardado con exito!");
-}    
+    }
 
-public ArrayList<Proveedor> obtenerProveedor(){
-    Session session = ServicioHibernate.getSessionFactory().openSession();
+    public ArrayList<Proveedor> obtenerProveedores(String filtro, String consulta) {
+        Session session = ServicioHibernate.getSessionFactory().openSession();
         Transaction tx = null;
         ArrayList<Proveedor> proveedor = null;
 
         try {
             tx = session.beginTransaction();
-            proveedor = (ArrayList<Proveedor>) session.createQuery("FROM Proveedor").list();
+            
+            Query consultaHQL = session.createQuery("FROM Proveedor ");
+
+            //Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.nombre LIKE :consulta");
+
+            //consultaHQL.setParameter("consulta", "\"%" + consulta + "%\"");
+
+            //consultaHQL.setParameter("filtro", "Nombre");
+
+            proveedor = (ArrayList<Proveedor>) consultaHQL.list();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -57,7 +67,6 @@ public ArrayList<Proveedor> obtenerProveedor(){
             session.close();
         }
         return proveedor;
-}
+    }
 
-    
 }
