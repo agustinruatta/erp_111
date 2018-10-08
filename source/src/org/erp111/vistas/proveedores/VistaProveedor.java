@@ -34,6 +34,7 @@ public class VistaProveedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         proveedorTable = new javax.swing.JTable();
@@ -100,6 +101,16 @@ public class VistaProveedor extends javax.swing.JFrame {
         });
 
         proveedorTextFieldFiltro.setText("Escriba el proveedor que desea buscar");
+        proveedorTextFieldFiltro.setToolTipText("");
+        proveedorTextFieldFiltro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        proveedorTextFieldFiltro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                proveedorTextFieldFiltroFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                proveedorTextFieldFiltroFocusLost(evt);
+            }
+        });
         proveedorTextFieldFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedorTextFieldFiltroActionPerformed(evt);
@@ -150,6 +161,31 @@ public class VistaProveedor extends javax.swing.JFrame {
             }
         });
 
+        proveedorTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedorTextFieldNombreActionPerformed(evt);
+            }
+        });
+
+        proveedorTextFieldApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedorTextFieldApellidoActionPerformed(evt);
+            }
+        });
+
+        proveedorTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedorTextFieldEmailActionPerformed(evt);
+            }
+        });
+
+        proveedorTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedorTextFieldDireccionActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("BankGothic Lt BT", 1, 18)); // NOI18N
         jLabel9.setText("Editor de Proveedores");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,54 +198,46 @@ public class VistaProveedor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(proveedorBotonDarDeBaja)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(proveedorBotonEditar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(proveedorLabelNombre)
-                                    .addComponent(proveedorLabelApellido)
-                                    .addComponent(proveedorLabelCuit)
-                                    .addComponent(proveedorLabelTelefono))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(proveedorTextFieldTelefono)
-                                    .addComponent(proveedorTextFieldCuit, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(proveedorTextFieldApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(proveedorTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(proveedorLabelProvincia)
-                                            .addComponent(proveedorLabelCiudad))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(proveedorTextFieldProvincia))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(4, 4, 4)
-                                                .addComponent(proveedorTextFieldCiudad))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(proveedorLabelDireccion)
-                                            .addComponent(proveedorLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(proveedorTextFieldEmail)
-                                            .addComponent(proveedorTextFieldDireccion)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(proveedorBotonCancelarEdicion)
+                                .addGap(18, 18, 18)
+                                .addComponent(proveedorBotonGuardar))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(proveedorBotonCancelarEdicion)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(proveedorBotonGuardar))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(237, 237, 237)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(proveedorLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(proveedorLabelCuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(proveedorLabelTelefono))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(proveedorLabelNombre)
+                                        .addGap(9, 9, 9)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(proveedorTextFieldCuit, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(proveedorTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedorTextFieldNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedorTextFieldTelefono))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedorLabelDireccion)
+                                    .addComponent(proveedorLabelApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(proveedorLabelCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(proveedorLabelProvincia))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(proveedorTextFieldCiudad, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedorTextFieldDireccion, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedorTextFieldApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedorTextFieldProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(19, 19, 19)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(proveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,37 +246,41 @@ public class VistaProveedor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(proveedorBotonBuscar)
                         .addGap(18, 18, 18))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(156, 156, 156))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addContainerGap()
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proveedorLabelEmail)
                     .addComponent(proveedorLabelNombre)
                     .addComponent(proveedorTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proveedorTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proveedorLabelApellido))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proveedorTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proveedorLabelEmail)
+                    .addComponent(proveedorLabelDireccion)
                     .addComponent(proveedorTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proveedorLabelApellido)
-                    .addComponent(proveedorLabelDireccion)
-                    .addComponent(proveedorTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proveedorTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proveedorLabelCuit)
                     .addComponent(proveedorLabelCiudad)
                     .addComponent(proveedorTextFieldCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proveedorTextFieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(proveedorTextFieldCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proveedorLabelCuit))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proveedorLabelTelefono)
                     .addComponent(proveedorLabelProvincia)
                     .addComponent(proveedorTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proveedorTextFieldProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                    .addComponent(proveedorTextFieldProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proveedorLabelTelefono))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proveedorBotonGuardar)
                     .addComponent(proveedorBotonCancelarEdicion))
@@ -259,7 +291,7 @@ public class VistaProveedor extends javax.swing.JFrame {
                     .addComponent(proveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(proveedorTextFieldFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(proveedorBotonBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -343,6 +375,32 @@ public class VistaProveedor extends javax.swing.JFrame {
         this.presentadorProveedores.botonCancelarEdicionApretado();
     }//GEN-LAST:event_proveedorBotonCancelarEdicionApretado
 
+    private void proveedorTextFieldFiltroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_proveedorTextFieldFiltroFocusGained
+       proveedorTextFieldFiltro.setText("");
+    }//GEN-LAST:event_proveedorTextFieldFiltroFocusGained
+
+    private void proveedorTextFieldFiltroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_proveedorTextFieldFiltroFocusLost
+        if(proveedorTextFieldFiltro.getText().equals("")){
+            proveedorTextFieldFiltro.setText("Escriba el proveedor que desea buscar");
+        }
+    }//GEN-LAST:event_proveedorTextFieldFiltroFocusLost
+
+    private void proveedorTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorTextFieldEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proveedorTextFieldEmailActionPerformed
+
+    private void proveedorTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorTextFieldDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proveedorTextFieldDireccionActionPerformed
+
+    private void proveedorTextFieldApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorTextFieldApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proveedorTextFieldApellidoActionPerformed
+
+    private void proveedorTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proveedorTextFieldNombreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -351,6 +409,7 @@ public class VistaProveedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton proveedorBotonBuscar;
     private javax.swing.JButton proveedorBotonCancelarEdicion;
     private javax.swing.JButton proveedorBotonDarDeBaja;

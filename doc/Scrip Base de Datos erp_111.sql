@@ -23,7 +23,7 @@ email varchar(45) not null,
 direccion varchar(45) not null,
 localidad varchar(45) not null,
 provincia varchar(45) not null,
-rubro varchar(45) not null
+estado varchar(15)
 );
 
 create table cliente(
