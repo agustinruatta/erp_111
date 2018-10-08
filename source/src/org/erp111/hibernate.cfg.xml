@@ -41,19 +41,19 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">38086551</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/erp_111?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">8546</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="org/erp111/modelos/Producto.hbm.xml"/>
+    <mapping resource="org/erp111/modelos/Compra.hbm.xml"/>
+    <mapping resource="org/erp111/modelos/Proveedor.hbm.xml"/>
     <mapping resource="org/erp111/modelos/DetalleVenta.hbm.xml"/>
     <mapping resource="org/erp111/modelos/Cliente.hbm.xml"/>
-    <mapping resource="org/erp111/modelos/Compra.hbm.xml"/>
     <mapping resource="org/erp111/modelos/DetalleCompra.hbm.xml"/>
-    <mapping resource="org/erp111/modelos/Proveedor.hbm.xml"/>
     <mapping resource="org/erp111/modelos/Venta.hbm.xml"/>
+    <mapping resource="org/erp111/modelos/Producto.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

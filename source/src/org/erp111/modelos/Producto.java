@@ -1,5 +1,5 @@
 package org.erp111.modelos;
-// Generated 25/09/2018 14:25:04 by Hibernate Tools 4.3.1
+// Generated 08/10/2018 14:27:19 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -135,11 +135,7 @@ public class Producto  implements java.io.Serializable {
     public void setDetalleCompras(Set detalleCompras) {
         this.detalleCompras = detalleCompras;
     }
-    
-    @Override
-    public String toString(){
-        return this.nombre;
-    }
+
 
 
 
