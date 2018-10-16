@@ -12,7 +12,8 @@ public class Proveedor  implements java.io.Serializable {
 
 
      private Integer codigoProveedor;
-     private String nombreApellido;
+     private String nombre;
+     private String apellido;
      private String cuit;
      private String telefono;
      private String email;
@@ -26,28 +27,17 @@ public class Proveedor  implements java.io.Serializable {
     }
 
 	
-    public Proveedor(String nombreApellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String estado) {
-        this.nombreApellido = nombreApellido;
+    public Proveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.cuit = cuit;
         this.telefono = telefono;
         this.email = email;
         this.direccion = direccion;
         this.localidad = localidad;
         this.provincia = provincia;
-        this.estado = estado;
     }
-    public Proveedor(String nombreApellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String estado, Set compras) {
-       this.nombreApellido = nombreApellido;
-       this.cuit = cuit;
-       this.telefono = telefono;
-       this.email = email;
-       this.direccion = direccion;
-       this.localidad = localidad;
-       this.provincia = provincia;
-       this.estado = estado;
-       this.compras = compras;
-    }
-   
+    
     public Integer getCodigoProveedor() {
         return this.codigoProveedor;
     }
@@ -55,13 +45,22 @@ public class Proveedor  implements java.io.Serializable {
     public void setCodigoProveedor(Integer codigoProveedor) {
         this.codigoProveedor = codigoProveedor;
     }
-    public String getNombreApellido() {
-        return this.nombreApellido;
+    public String getNombre() {
+        return this.nombre;
     }
     
-    public void setNombreApellido(String nombreApellido) {
-        this.nombreApellido = nombreApellido;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
+    
+    public String getApellido(){
+        return this.apellido;
+    }
+    
+    public void setApellido(String apellido){
+        this.apellido = apellido;
+    }
+    
     public String getCuit() {
         return this.cuit;
     }

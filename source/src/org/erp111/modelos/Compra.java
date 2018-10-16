@@ -29,13 +29,13 @@ public class Compra  implements java.io.Serializable {
         this.montoTotal = montoTotal;
         this.fecha = fecha;
     }
-    public Compra(Producto producto, Proveedor proveedor, double montoTotal, Date fecha, Set detalleCompras) {
+    /*public Compra(Producto producto, Proveedor proveedor, double montoTotal, Date fecha, Set detalleCompras) {
        this.producto = producto;
        this.proveedor = proveedor;
        this.montoTotal = montoTotal;
        this.fecha = fecha;
        this.detalleCompras = detalleCompras;
-    }
+    }*/
    
     public Integer getCodigoCompra() {
         return this.codigoCompra;
