@@ -7,7 +7,9 @@ package org.erp111.presentadores;
 
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import org.erp111.modelos.Proveedor;
 import org.erp111.repositorios.ProveedorRepositorio;
@@ -27,8 +29,12 @@ public class ProveedorPresentador {
         this.servicioProveedor = new ServicioProveedor();
     }
     
-    public void botonBuscarApretado(){
-        ArrayList<Proveedor> proveedores = this.servicioProveedor.getProveedores("", "");
+    public void botonBuscarApretado(JComboBox proveedorBox, JTextField consultaField){
+        String filtro;
+        String consulta;
+        filtro = proveedorBox.getSelectedItem().toString();
+        consulta = consultaField.getText();
+        ArrayList<Proveedor> proveedores = this.servicioProveedor.getProveedores(filtro, consulta);
         
         this.rellenarTablaProveedores(proveedores);
     }

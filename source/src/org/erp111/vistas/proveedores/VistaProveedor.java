@@ -98,7 +98,7 @@ public class VistaProveedor extends javax.swing.JFrame {
 
         proveedorTextFieldFiltro.setText("Escriba el proveedor que desea buscar");
         proveedorTextFieldFiltro.setToolTipText("");
-        proveedorTextFieldFiltro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        proveedorTextFieldFiltro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         proveedorTextFieldFiltro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 proveedorTextFieldFiltroFocusGained(evt);
@@ -113,7 +113,7 @@ public class VistaProveedor extends javax.swing.JFrame {
             }
         });
 
-        proveedorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido", "Cuit", "Telefono", "Email", "Direccion", "Localidad", "Provincia" }));
+        proveedorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre", "apellido", "cuit", "telefono", "email", "direccion", "localidad", "provincia" }));
         proveedorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedorComboBoxActionPerformed(evt);
@@ -259,11 +259,12 @@ public class VistaProveedor extends javax.swing.JFrame {
                     .addComponent(proveedorTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(proveedorLabelApellido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proveedorTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(proveedorLabelEmail)
-                    .addComponent(proveedorLabelDireccion)
-                    .addComponent(proveedorTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(proveedorTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(proveedorLabelDireccion)
+                        .addComponent(proveedorTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proveedorLabelCiudad)
@@ -362,7 +363,7 @@ public class VistaProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_proveedorBotonEditarApretado
 
     private void proveedorBotonBuscarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonBuscarApretado
-        this.presentadorProveedores.botonBuscarApretado();
+        this.presentadorProveedores.botonBuscarApretado(this.proveedorComboBox,this.proveedorTextFieldFiltro);
     }//GEN-LAST:event_proveedorBotonBuscarApretado
 
     private void proveedorBotonGuardarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorBotonGuardarApretado

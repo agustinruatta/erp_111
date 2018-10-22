@@ -117,11 +117,13 @@
                   <Component id="proveedorLabelApellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="proveedorTextFieldDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="proveedorLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="proveedorTextFieldDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="proveedorLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="proveedorTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -258,7 +260,7 @@
         <Property name="text" type="java.lang.String" value="Escriba el proveedor que desea buscar"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Texto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -271,14 +273,14 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="8">
-            <StringItem index="0" value="Nombre"/>
-            <StringItem index="1" value="Apellido"/>
-            <StringItem index="2" value="Cuit"/>
-            <StringItem index="3" value="Telefono"/>
-            <StringItem index="4" value="Email"/>
-            <StringItem index="5" value="Direccion"/>
-            <StringItem index="6" value="Localidad"/>
-            <StringItem index="7" value="Provincia"/>
+            <StringItem index="0" value="nombre"/>
+            <StringItem index="1" value="apellido"/>
+            <StringItem index="2" value="cuit"/>
+            <StringItem index="3" value="telefono"/>
+            <StringItem index="4" value="email"/>
+            <StringItem index="5" value="direccion"/>
+            <StringItem index="6" value="localidad"/>
+            <StringItem index="7" value="provincia"/>
           </StringArray>
         </Property>
       </Properties>
