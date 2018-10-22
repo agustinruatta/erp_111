@@ -41,52 +41,17 @@ public class ProveedorRepositorio {
     }
 
     public ArrayList<Proveedor> obtenerProveedores(String filtro, String consulta) {
+        String filtroCorrecto = new String("");
         Session session = ServicioHibernate.getSessionFactory().openSession();
         Transaction tx = null;
         ArrayList<Proveedor> proveedor = null;
 
         try {
             tx = session.beginTransaction();
-            if (filtro.equals("nombre")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.nombre LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("apellido")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.apellido LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("cuit")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.cuit LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("telefono")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.telefono LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("email")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.email LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("direccion")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.direccion LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("localidad")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.localidad LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("provincia")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.provincia LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
+            filtroCorrecto = filtroSeleccionado(filtro);
+            Query consultaHQL = session.createQuery(filtroCorrecto);
+            consultaHQL.setParameter("consulta", "%" + consulta + "%");
+            proveedor = (ArrayList<Proveedor>) consultaHQL.list();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -99,4 +64,35 @@ public class ProveedorRepositorio {
         return proveedor;
     }
 
+    private String filtroSeleccionado(String filtro){
+        String filtroCorrecto = new String("");
+        if (filtro.equals("nombre")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.nombre LIKE :consulta");                
+            }
+            else if (filtro.equals("apellido")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.apellido LIKE :consulta");                
+            }
+            else if (filtro.equals("cuit")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.cuit LIKE :consulta");                
+            }
+            else if (filtro.equals("telefono")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.telefono LIKE :consulta");                
+            }
+            else if (filtro.equals("email")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.email LIKE :consulta");                
+            }
+            else if (filtro.equals("direccion")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.direccion LIKE :consulta");                
+            }
+            else if (filtro.equals("localidad")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.localidad LIKE :consulta");                
+            }
+            else if (filtro.equals("provincia")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.provincia LIKE :consulta");               
+            }
+            else {
+                throw new IllegalArgumentException("Filtro inválido: " + filtro);
+            }
+        return filtroCorrecto;
+    }
 }
