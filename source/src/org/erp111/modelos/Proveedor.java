@@ -1,5 +1,5 @@
 package org.erp111.modelos;
-// Generated 08/10/2018 14:27:19 by Hibernate Tools 4.3.1
+// Generated 24/10/2018 16:01:50 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -37,7 +37,19 @@ public class Proveedor  implements java.io.Serializable {
         this.localidad = localidad;
         this.provincia = provincia;
     }
-    
+    public Proveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String estado, Set compras) {
+       this.nombre = nombre;
+       this.apellido = apellido;
+       this.cuit = cuit;
+       this.telefono = telefono;
+       this.email = email;
+       this.direccion = direccion;
+       this.localidad = localidad;
+       this.provincia = provincia;
+       this.estado = estado;
+       this.compras = compras;
+    }
+   
     public Integer getCodigoProveedor() {
         return this.codigoProveedor;
     }
@@ -52,15 +64,13 @@ public class Proveedor  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public String getApellido(){
+    public String getApellido() {
         return this.apellido;
     }
     
-    public void setApellido(String apellido){
+    public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
     public String getCuit() {
         return this.cuit;
     }
