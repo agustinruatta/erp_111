@@ -7,9 +7,12 @@ package org.erp111.presentadores;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import org.erp111.modelos.Cliente;
+import org.erp111.modelos.DetalleVenta;
 import org.erp111.modelos.Producto;
 import org.erp111.servicios.VentaServicio;
 import org.erp111.vistas.VistaVenta;
@@ -84,11 +87,34 @@ public class VentaPresentador {
         TableModel modeloTabla = this.vistaVenta.getTableModel();
         Producto producto = (Producto)this.vistaVenta.getProductosList().getSelectedValue();
         //ver si no hay producto seleccionado
-        
+        DetalleVenta detalleVenta = new DetalleVenta(producto, venta, COLUMNA_CANTIDAD, COLUMNA_PRECIO_UNITARIO, COLUMNA_CODIGO, COLUMNA_MONTO);
         modeloTabla.setValueAt(producto., COLUMNA_CODIGO, COLUMNA_CODIGO);
         
         
         
+    }
+    
+    public void buscarCliente(){
+        
+        ComboBoxModel<String> modeloComboBox = this.vistaVenta.getModeloClientesComboBox();
+        
+            try{
+                ArrayList<Cliente> clientes = this.ventaServicio.buscarCliente(this.vistaVenta.getAtributoComboBox().getSelectedItem().toString(), this.vistaVenta.getParametroBusquedaTextField().getText());
+        
+            //TO DO: ACA PODRIA ORDENARLO POR NOMBRE AL ARRAY
+        
+            for(Cliente cliente: clientes){
+                modeloComboBox.
+            }
+            
+        }catch(RuntimeException e){
+            System.out.println(e.getMessage());
+            modeloLista.clear();
+            
+        }finally{
+            this.vistaVenta.setModeloListaProductos(modeloLista);
+        }
+    
     }
     
 }
