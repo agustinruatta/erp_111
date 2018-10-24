@@ -39,19 +39,63 @@ public class ProveedorRepositorio {
         }
         JOptionPane.showMessageDialog(null, "Guardado con exito!");
     }
+    
+    public void actualizarProveedor(Proveedor proveedor) {
+        //Guardar proveedor en la base de datos
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.update(proveedor);
+            tx.commit();
+            JOptionPane.showMessageDialog(null, "Actualizado con exito!");
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void darBajaProveedor(Proveedor proveedor){
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.update(proveedor);
+            tx.commit();
+            JOptionPane.showMessageDialog(null, "Proveedor dado de baja!");
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 
     public ArrayList<Proveedor> obtenerProveedores(String filtro, String consulta) {
         String filtroCorrecto = new String("");
         Session session = ServicioHibernate.getSessionFactory().openSession();
         Transaction tx = null;
         ArrayList<Proveedor> proveedor = null;
-
         try {
             tx = session.beginTransaction();
-            filtroCorrecto = filtroSeleccionado(filtro);
-            Query consultaHQL = session.createQuery(filtroCorrecto);
-            consultaHQL.setParameter("consulta", "%" + consulta + "%");
-            proveedor = (ArrayList<Proveedor>) consultaHQL.list();
+            if(consulta.equals("Escriba el proveedor que desea buscar")){
+                Query consultaHQL = session.createQuery("FROM Proveedor ");
+                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
+            }
+            else{
+                filtroCorrecto = filtroSeleccionado(filtro);
+                Query consultaHQL = session.createQuery(filtroCorrecto);
+                consultaHQL.setParameter("consulta", "%" + consulta + "%");
+                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
+            }            
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -94,5 +138,27 @@ public class ProveedorRepositorio {
                 throw new IllegalArgumentException("Filtro inválido: " + filtro);
             }
         return filtroCorrecto;
+    }
+    
+    public Proveedor obtenerProveedor(String id) {
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+        Proveedor proveedor = null;
+
+        try {
+            tx = session.beginTransaction();
+            Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.codigoProveedor = :id");
+            consultaHQL.setParameter("id", id);
+            proveedor = (Proveedor) consultaHQL.uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return proveedor;
     }
 }

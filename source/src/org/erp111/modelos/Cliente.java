@@ -1,5 +1,5 @@
 package org.erp111.modelos;
-// Generated 08/10/2018 14:27:19 by Hibernate Tools 4.3.1
+// Generated 25/09/2018 14:25:04 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,7 +12,8 @@ public class Cliente  implements java.io.Serializable {
 
 
      private Integer codigoCliente;
-     private String nombreApellido;
+     private String nombre;
+     private String apellido;
      private String telefono;
      private String direccion;
      private String localidad;
@@ -23,15 +24,17 @@ public class Cliente  implements java.io.Serializable {
     }
 
 	
-    public Cliente(String nombreApellido, String telefono, String direccion, String localidad, String cuil) {
-        this.nombreApellido = nombreApellido;
+    public Cliente(String nombre, String apellido, String telefono, String direccion, String localidad, String cuil) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.telefono = telefono;
         this.direccion = direccion;
         this.localidad = localidad;
         this.cuil = cuil;
     }
-    public Cliente(String nombreApellido, String telefono, String direccion, String localidad, String cuil, Set ventas) {
-       this.nombreApellido = nombreApellido;
+    public Cliente(String nombre, String apellido, String telefono, String direccion, String localidad, String cuil, Set ventas) {
+       this.nombre = nombre;
+       this.apellido = apellido;
        this.telefono = telefono;
        this.direccion = direccion;
        this.localidad = localidad;
@@ -46,12 +49,19 @@ public class Cliente  implements java.io.Serializable {
     public void setCodigoCliente(Integer codigoCliente) {
         this.codigoCliente = codigoCliente;
     }
-    public String getNombreApellido() {
-        return this.nombreApellido;
+    public String getNombre() {
+        return this.nombre;
     }
     
-    public void setNombreApellido(String nombreApellido) {
-        this.nombreApellido = nombreApellido;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getApellido() {
+        return this.apellido;
+    }
+    
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
     public String getTelefono() {
         return this.telefono;
