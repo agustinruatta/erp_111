@@ -107,7 +107,7 @@ public class VistaProveedor extends javax.swing.JFrame {
             }
         });
 
-        proveedorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre", "apellido", "cuit", "telefono", "email", "direccion", "localidad", "provincia" }));
+        proveedorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre", "apellido", "cuit", "telefono", "email", "direccion", "localidad", "provincia", "inactivos" }));
         proveedorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedorComboBoxActionPerformed(evt);
