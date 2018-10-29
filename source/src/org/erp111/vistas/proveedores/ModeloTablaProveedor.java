@@ -68,7 +68,7 @@ public class ModeloTablaProveedor extends AbstractTableModel{
             case COLUMNA_PROVINCIA:
                 return this.proveedorAMostrar.get(rowIndex).getProvincia();
             case COLUMNA_ESTADO:
-                return this.proveedorAMostrar.get(rowIndex).getEstado();
+                return this.proveedorAMostrar.get(rowIndex).getEstado().toString();
             default:
                 throw new IllegalArgumentException();
         }
