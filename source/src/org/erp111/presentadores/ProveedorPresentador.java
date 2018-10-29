@@ -77,7 +77,7 @@ public class ProveedorPresentador {
         String email = this.vistaProveedores.getEmailTextField().getText();
         String direccion = this.vistaProveedores.getDireccionTextField().getText();
         String localidad = this.vistaProveedores.getCiudadTextField().getText();
-        String provincia = this.vistaProveedores.getCiudadTextField().getText();
+        String provincia = this.vistaProveedores.getProvinciaTextField().getText();
         //Integer id = this.vistaProveedores.get
         
         //Intento guardar los datos, para ello debo validarlos
