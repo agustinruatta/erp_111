@@ -43,6 +43,8 @@ public class ModeloTablaProveedor extends AbstractTableModel{
     public int getColumnCount() {
         return 9;
     }
+    
+    
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {

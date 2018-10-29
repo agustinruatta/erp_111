@@ -127,9 +127,15 @@ public class Proveedor  implements java.io.Serializable {
     public void setCompras(Set compras) {
         this.compras = compras;
     }
-
-
-
+    
+    public boolean estaDadoDeBaja() {
+        if(getEstado() != null){
+            return getEstado().equals("baja");
+        }
+        else {
+            return false;
+        }
+    }
 
 }
 

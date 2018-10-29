@@ -14,6 +14,7 @@ import org.erp111.modelos.Proveedor;
 import org.erp111.vistas.proveedores.VistaProveedor;
 import org.erp111.servicios.ServicioProveedor;
 import org.erp111.vistas.proveedores.ModeloTablaProveedor;
+import org.erp111.vistas.proveedores.ProveedorCellRenderer;
 
 /**
  *
@@ -26,6 +27,9 @@ public class ProveedorPresentador {
     public ProveedorPresentador (VistaProveedor vistaProveedores){
         this.vistaProveedores = vistaProveedores;
         this.servicioProveedor = new ServicioProveedor();
+        
+        ProveedorCellRenderer proveedorCellRenderer = new ProveedorCellRenderer();
+        this.vistaProveedores.getProveedorTable().setDefaultRenderer(Object.class, proveedorCellRenderer);
     }
     
     public void botonBuscarApretado(JComboBox proveedorBox, JTextField consultaField){
@@ -39,7 +43,6 @@ public class ProveedorPresentador {
     }
     
     public void rellenarTablaProveedores(ArrayList<Proveedor> proveedores) {
-        
         ModeloTablaProveedor modeloTablaProveedor = new ModeloTablaProveedor(proveedores);
         this.vistaProveedores.getProveedorTable().setModel(modeloTablaProveedor);
     }
