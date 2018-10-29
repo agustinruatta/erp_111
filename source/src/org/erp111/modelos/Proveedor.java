@@ -24,7 +24,7 @@ public class Proveedor  implements java.io.Serializable {
      private String provincia;
      
      @Enumerated(EnumType.STRING)
-     private EstadosProveedor estado = EstadosProveedor.ACTIVO;
+     private String estado = EstadosProveedor.ACTIVO.toString();
      
      private Set compras = new HashSet(0);
 
@@ -42,7 +42,7 @@ public class Proveedor  implements java.io.Serializable {
         this.localidad = localidad;
         this.provincia = provincia;
     }
-    public Proveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, EstadosProveedor estado, Set compras) {
+    public Proveedor(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String localidad, String provincia, String estado, Set compras) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.cuit = cuit;
@@ -118,11 +118,11 @@ public class Proveedor  implements java.io.Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-    public EstadosProveedor getEstado() {
+    public String getEstado() {
         return this.estado;
     }
     
-    public void setEstado(EstadosProveedor estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
     public Set getCompras() {

@@ -140,11 +140,10 @@ public class ServicioProveedor {
     }
 
     public void darBaja(Proveedor proveedor) {
-        proveedor.setEstado(EstadosProveedor.BAJA);
+        proveedor.setEstado(EstadosProveedor.BAJA.toString());
         
         this.proveedorRepositorio.darBaja(proveedor);
     }
 }
 
-//Crear metodo para una query que devuelva el proveedor segun el id, where :id = idSeleccionado
 
