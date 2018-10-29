@@ -15,6 +15,7 @@ import org.erp111.modelos.Proveedor;
 import org.erp111.modelos.Venta;
 import org.erp111.servicios.ServicioHibernate;
 import org.erp111.vistas.VistaVenta;
+import org.erp111.vistas.proveedores.VistaProveedor;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
