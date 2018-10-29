@@ -29,10 +29,9 @@ public class ProveedorPresentador {
     }
     
     public void botonBuscarApretado(JComboBox proveedorBox, JTextField consultaField){
-        String filtro;
-        String consulta;
-        filtro = proveedorBox.getSelectedItem().toString();
-        consulta = consultaField.getText();
+        String filtro = proveedorBox.getSelectedItem().toString();
+        String consulta = consultaField.getText();
+        
         ArrayList<Proveedor> proveedores = this.servicioProveedor.getProveedores(filtro, consulta);
         
         this.rellenarTablaProveedores(proveedores);
@@ -61,10 +60,14 @@ public class ProveedorPresentador {
     
     public void botonDarDeBajaApretado(){
         int filaSeleccionada = this.vistaProveedores.getProveedorTable().getSelectedRow();
+        
         ModeloTablaProveedor modelo = (ModeloTablaProveedor) this.vistaProveedores.getProveedorTable().getModel();
+        
         Proveedor proveedorSeleccionado = modelo.getProveedorSeleccionado(filaSeleccionada);
-        proveedorSeleccionado.setEstado("baja");
+        
         this.servicioProveedor.darBaja(proveedorSeleccionado);
+        
+        JOptionPane.showMessageDialog(null, "Proveedor dado de baja!");
     }
     
     public void botonGuardarApretado(){
@@ -78,11 +81,11 @@ public class ProveedorPresentador {
         String direccion = this.vistaProveedores.getDireccionTextField().getText();
         String localidad = this.vistaProveedores.getCiudadTextField().getText();
         String provincia = this.vistaProveedores.getProvinciaTextField().getText();
-        //Integer id = this.vistaProveedores.get
         
         //Intento guardar los datos, para ello debo validarlos
         try {
             this.servicioProveedor.guardarProveedorRepositorio(idString,nombre, apellido, cuit, telefono,email, direccion, localidad, provincia);
+            JOptionPane.showMessageDialog(null, "Guardado con éxito!");
             //Limpiar Campos
             this.vistaProveedores.getIdTextField().setText("");
             this.vistaProveedores.getNombreTextField().setText("");

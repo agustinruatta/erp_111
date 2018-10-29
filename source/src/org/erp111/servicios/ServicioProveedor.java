@@ -118,7 +118,7 @@ public class ServicioProveedor {
         }
         if (id == null) {
             Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia);
-            this.proveedorRepositorio.guardarProveedor(proveedor);
+            this.proveedorRepositorio.guardar(proveedor);
         } else {
             Proveedor proveedor = proveedorRepositorio.obtenerProveedor(idString);
             proveedor.setNombre(nombre);
@@ -129,7 +129,7 @@ public class ServicioProveedor {
             proveedor.setDireccion(direccion);
             proveedor.setLocalidad(ciudad);
             proveedor.setProvincia(provincia);
-            this.proveedorRepositorio.actualizarProveedor(proveedor);
+            this.proveedorRepositorio.actualizar(proveedor);
         }
 
     }
@@ -139,7 +139,8 @@ public class ServicioProveedor {
     }
 
     public void darBaja(Proveedor proveedor) {
-        this.proveedorRepositorio.darBajaProveedor(proveedor);
+        proveedor.setEstado("baja");
+        this.proveedorRepositorio.darBaja(proveedor);
     }
 }
 

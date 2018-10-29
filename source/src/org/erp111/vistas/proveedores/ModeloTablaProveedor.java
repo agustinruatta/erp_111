@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,6 +24,7 @@ public class ModeloTablaProveedor extends AbstractTableModel{
     private final int COLUMNA_LOCALIDAD = 6;
     private final int COLUMNA_PROVINCIA = 7;
     private final int COLUMNA_ESTADO = 8;
+    private final int CANTIDAD_COLUMNAS = 9;
     
     private ArrayList<Proveedor> proveedorAMostrar;
 
@@ -41,7 +43,7 @@ public class ModeloTablaProveedor extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 9;
+        return CANTIDAD_COLUMNAS;
     }
 
     @Override

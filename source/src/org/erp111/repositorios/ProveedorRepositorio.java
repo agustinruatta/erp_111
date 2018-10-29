@@ -18,66 +18,7 @@ import org.hibernate.Transaction;
  *
  * @author brzig
  */
-public class ProveedorRepositorio {
-
-    public void guardarProveedor(Proveedor proveedor) {
-        //Guardar proveedor en la base de datos
-        Session session = ServicioHibernate.getSessionFactory().openSession();
-        Transaction tx = null;
-
-        try {
-            tx = session.beginTransaction();
-            session.save(proveedor);
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        JOptionPane.showMessageDialog(null, "Guardado con exito!");
-    }
-    
-    public void actualizarProveedor(Proveedor proveedor) {
-        //Guardar proveedor en la base de datos
-        Session session = ServicioHibernate.getSessionFactory().openSession();
-        Transaction tx = null;
-
-        try {
-            tx = session.beginTransaction();
-            session.update(proveedor);
-            tx.commit();
-            JOptionPane.showMessageDialog(null, "Actualizado con exito!");
-        } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
-    
-    public void darBajaProveedor(Proveedor proveedor){
-        Session session = ServicioHibernate.getSessionFactory().openSession();
-        Transaction tx = null;
-
-        try {
-            tx = session.beginTransaction();
-            session.update(proveedor);
-            tx.commit();
-            JOptionPane.showMessageDialog(null, "Proveedor dado de baja!");
-        } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-    }
+public class ProveedorRepositorio extends RepositorioBase<Proveedor>{
 
     public ArrayList<Proveedor> obtenerProveedores(String filtro, String consulta) {
         String filtroCorrecto = new String("");
