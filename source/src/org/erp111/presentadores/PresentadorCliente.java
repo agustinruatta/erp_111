@@ -25,7 +25,7 @@ public class PresentadorCliente {
         this.serviciosClientes = new ServiciosClientes();
         
     }
-    public void GuardarClientes(){
+    public void guardarClientes(){
         //Obtenemos los datos
         String Nombre = this.vistaClientes.getNombreTextField().getText();
         String Apellido = this.vistaClientes.getApellidoTextField().getText();

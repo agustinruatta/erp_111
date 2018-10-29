@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package org.erp111.vistas;
-
+import org.erp111.presentadores.PresentadorCliente;
 /**
  *
  * @author Camila
  */
 public class VistaClientes extends javax.swing.JFrame {
 
+    private PresentadorCliente presentadorCliente;   
+    
     /**
      * Creates new form VistaClientes
      */
     public VistaClientes() {
         initComponents();
+        
+        this.presentadorCliente = new PresentadorCliente(this);
     }
 
     /**
@@ -89,6 +93,11 @@ public class VistaClientes extends javax.swing.JFrame {
         btnGuardar.setBackground(new java.awt.Color(153, 153, 153));
         btnGuardar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(153, 153, 153));
         btnCancelar.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
@@ -258,6 +267,10 @@ public class VistaClientes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+         this.presentadorCliente.guardarClientes();
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
