@@ -28,7 +28,13 @@ public class ProveedorRepositorio extends RepositorioBase<Proveedor>{
         try {
             tx = session.beginTransaction();
             if(consulta.equals("Escriba el proveedor que desea buscar")){
-                Query consultaHQL = session.createQuery("FROM Proveedor ");
+                Query consultaHQL;
+                if(filtro.equals("inactivos")){
+                    consultaHQL = session.createQuery("FROM Proveedor p WHERE p.estado = \"baja\"");
+                }
+                else{
+                    consultaHQL = session.createQuery("FROM Proveedor p ");
+                }
                 proveedor = (ArrayList<Proveedor>) consultaHQL.list();
             }
             else{
