@@ -31,8 +31,11 @@
         <property name="provincia" type="string">
             <column name="provincia" length="45" not-null="true" />
         </property>
-        <property name="estado" type="org.hibernate.type.EnumType">
-            <column name="estado" length="15" />
+        <property name="estado" column="estado">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">org.erp111.modelos.EstadosProveedor</param>
+                <param name="useNamed">true</param>
+            </type>
         </property>
         <set name="compras" table="compra" inverse="true" lazy="true" fetch="select">
             <key>
