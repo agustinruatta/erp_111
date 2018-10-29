@@ -140,7 +140,7 @@ public class ServicioProveedor {
     }
 
     public void darBaja(Proveedor proveedor) {
-        proveedor.setEstado(EstadosProveedor.BAJA.toString());
+        proveedor.setEstado(EstadosProveedor.BAJA);
         
         this.proveedorRepositorio.darBaja(proveedor);
     }
