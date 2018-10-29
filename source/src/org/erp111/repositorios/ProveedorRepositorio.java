@@ -39,54 +39,63 @@ public class ProveedorRepositorio {
         }
         JOptionPane.showMessageDialog(null, "Guardado con exito!");
     }
-
-    public ArrayList<Proveedor> obtenerProveedores(String filtro, String consulta) {
+    
+    public void actualizarProveedor(Proveedor proveedor) {
+        //Guardar proveedor en la base de datos
         Session session = ServicioHibernate.getSessionFactory().openSession();
         Transaction tx = null;
-        ArrayList<Proveedor> proveedor = null;
 
         try {
             tx = session.beginTransaction();
-            if (filtro.equals("nombre")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.nombre LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
+            session.update(proveedor);
+            tx.commit();
+            JOptionPane.showMessageDialog(null, "Actualizado con exito!");
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+    
+    public void darBajaProveedor(Proveedor proveedor){
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.update(proveedor);
+            tx.commit();
+            JOptionPane.showMessageDialog(null, "Proveedor dado de baja!");
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public ArrayList<Proveedor> obtenerProveedores(String filtro, String consulta) {
+        String filtroCorrecto = new String("");
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Proveedor> proveedor = null;
+        try {
+            tx = session.beginTransaction();
+            if(consulta.equals("Escriba el proveedor que desea buscar")){
+                Query consultaHQL = session.createQuery("FROM Proveedor ");
                 proveedor = (ArrayList<Proveedor>) consultaHQL.list();
             }
-            if (filtro.equals("apellido")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.apellido LIKE :consulta");
+            else{
+                filtroCorrecto = filtroSeleccionado(filtro);
+                Query consultaHQL = session.createQuery(filtroCorrecto);
                 consultaHQL.setParameter("consulta", "%" + consulta + "%");
                 proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("cuit")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.cuit LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("telefono")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.telefono LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("email")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.email LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("direccion")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.direccion LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("localidad")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.localidad LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
-            if (filtro.equals("provincia")) {
-                Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.provincia LIKE :consulta");
-                consultaHQL.setParameter("consulta", "%" + consulta + "%");
-                proveedor = (ArrayList<Proveedor>) consultaHQL.list();
-            }
+            }            
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -99,4 +108,57 @@ public class ProveedorRepositorio {
         return proveedor;
     }
 
+    private String filtroSeleccionado(String filtro){
+        String filtroCorrecto = new String("");
+        if (filtro.equals("nombre")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.nombre LIKE :consulta");                
+            }
+            else if (filtro.equals("apellido")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.apellido LIKE :consulta");                
+            }
+            else if (filtro.equals("cuit")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.cuit LIKE :consulta");                
+            }
+            else if (filtro.equals("telefono")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.telefono LIKE :consulta");                
+            }
+            else if (filtro.equals("email")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.email LIKE :consulta");                
+            }
+            else if (filtro.equals("direccion")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.direccion LIKE :consulta");                
+            }
+            else if (filtro.equals("localidad")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.localidad LIKE :consulta");                
+            }
+            else if (filtro.equals("provincia")) {
+                filtroCorrecto = new String("FROM Proveedor p WHERE p.provincia LIKE :consulta");               
+            }
+            else {
+                throw new IllegalArgumentException("Filtro inválido: " + filtro);
+            }
+        return filtroCorrecto;
+    }
+    
+    public Proveedor obtenerProveedor(String id) {
+        Session session = ServicioHibernate.getSessionFactory().openSession();
+        Transaction tx = null;
+        Proveedor proveedor = null;
+
+        try {
+            tx = session.beginTransaction();
+            Query consultaHQL = session.createQuery("FROM Proveedor p WHERE p.codigoProveedor = :id");
+            consultaHQL.setParameter("id", id);
+            proveedor = (Proveedor) consultaHQL.uniqueResult();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return proveedor;
+    }
 }

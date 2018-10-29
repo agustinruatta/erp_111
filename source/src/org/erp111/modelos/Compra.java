@@ -1,5 +1,5 @@
 package org.erp111.modelos;
-// Generated 08/10/2018 14:27:19 by Hibernate Tools 4.3.1
+// Generated 24/10/2018 16:01:50 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -29,13 +29,13 @@ public class Compra  implements java.io.Serializable {
         this.montoTotal = montoTotal;
         this.fecha = fecha;
     }
-    /*public Compra(Producto producto, Proveedor proveedor, double montoTotal, Date fecha, Set detalleCompras) {
+    public Compra(Producto producto, Proveedor proveedor, double montoTotal, Date fecha, Set detalleCompras) {
        this.producto = producto;
        this.proveedor = proveedor;
        this.montoTotal = montoTotal;
        this.fecha = fecha;
        this.detalleCompras = detalleCompras;
-    }*/
+    }
    
     public Integer getCodigoCompra() {
         return this.codigoCompra;

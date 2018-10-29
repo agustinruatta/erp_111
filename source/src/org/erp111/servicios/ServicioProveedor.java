@@ -6,6 +6,7 @@
 package org.erp111.servicios;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import org.erp111.modelos.Proveedor;
 import org.erp111.repositorios.ProveedorRepositorio;
 
@@ -99,7 +100,8 @@ public class ServicioProveedor {
     /**
      * **********************************************************************
      */
-    public void guardarProveedorRepositorio(String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia) {
+    public void guardarProveedorRepositorio(String idString, String nombre, String apellido, String cuit, String telefono, String email, String direccion, String ciudad, String provincia) {
+        Integer id = null;
         //Validacion de los datos
         validarNombre(nombre);
         validarApellido(apellido);
@@ -110,13 +112,36 @@ public class ServicioProveedor {
         validarProvincia(provincia);
 
         //El Email no se valida!!!
-        Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia);
-
-        this.proveedorRepositorio.guardarProveedor(proveedor);
+        try {
+            id = Integer.parseInt(idString);
+        } catch (NumberFormatException e) {
+        }
+        if (id == null) {
+            Proveedor proveedor = new Proveedor(nombre, apellido, cuit, telefono, email, direccion, ciudad, provincia);
+            this.proveedorRepositorio.guardarProveedor(proveedor);
+        } else {
+            Proveedor proveedor = proveedorRepositorio.obtenerProveedor(idString);
+            proveedor.setNombre(nombre);
+            proveedor.setApellido(apellido);
+            proveedor.setCuit(cuit);
+            proveedor.setTelefono(telefono);
+            proveedor.setEmail(email);
+            proveedor.setDireccion(direccion);
+            proveedor.setLocalidad(ciudad);
+            proveedor.setProvincia(provincia);
+            this.proveedorRepositorio.actualizarProveedor(proveedor);
+        }
 
     }
-    
+
     public ArrayList<Proveedor> getProveedores(String filtro, String consulta) {
         return this.proveedorRepositorio.obtenerProveedores(filtro, consulta);
     }
+
+    public void darBaja(Proveedor proveedor) {
+        this.proveedorRepositorio.darBajaProveedor(proveedor);
+    }
 }
+
+//Crear metodo para una query que devuelva el proveedor segun el id, where :id = idSeleccionado
+

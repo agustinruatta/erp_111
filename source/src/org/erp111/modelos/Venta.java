@@ -1,5 +1,5 @@
 package org.erp111.modelos;
-// Generated 08/10/2018 14:27:19 by Hibernate Tools 4.3.1
+// Generated 24/10/2018 16:01:50 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
