@@ -7,6 +7,7 @@ package org.erp111.servicios;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import org.erp111.modelos.EstadosProveedor;
 import org.erp111.modelos.Proveedor;
 import org.erp111.repositorios.ProveedorRepositorio;
 
@@ -139,7 +140,8 @@ public class ServicioProveedor {
     }
 
     public void darBaja(Proveedor proveedor) {
-        proveedor.setEstado("baja");
+        proveedor.setEstado(EstadosProveedor.BAJA);
+        
         this.proveedorRepositorio.darBaja(proveedor);
     }
 }
