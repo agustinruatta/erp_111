@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -29,68 +33,62 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="1" pref="597" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="1" pref="569" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="proveedorBotonDarDeBaja" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="proveedorBotonEditar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="proveedorLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="proveedorLabelApellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="proveedorLabelCuit" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="proveedorLabelTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="proveedorTextFieldTelefono" max="32767" attributes="0"/>
-                                  <Component id="proveedorTextFieldCuit" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="proveedorTextFieldApellido" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="proveedorTextFieldNombre" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="proveedorLabelProvincia" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="proveedorLabelCiudad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="proveedorTextFieldProvincia" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                              <Component id="proveedorTextFieldCiudad" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="proveedorLabelDireccion" min="-2" max="-2" attributes="0"/>
-                                          <Component id="proveedorLabelEmail" min="-2" pref="28" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="proveedorTextFieldEmail" max="32767" attributes="0"/>
-                                          <Component id="proveedorTextFieldDireccion" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="proveedorBotonCancelarEdicion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="proveedorBotonGuardar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="proveedorBotonCancelarEdicion" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="proveedorBotonGuardar" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="proveedorLabelEmail" max="32767" attributes="0"/>
+                                              <Component id="proveedorLabelCuit" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="proveedorLabelTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="proveedorLabelNombre" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="proveedorTextFieldCuit" pref="200" max="32767" attributes="0"/>
+                                          <Component id="proveedorTextFieldEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="proveedorTextFieldNombre" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="proveedorTextFieldTelefono" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="proveedorLabelDireccion" min="-2" max="-2" attributes="0"/>
+                                          <Component id="proveedorLabelApellido" min="-2" pref="47" max="-2" attributes="0"/>
+                                          <Component id="proveedorLabelCiudad" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
+                                          <Component id="proveedorLabelProvincia" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="proveedorTextFieldCiudad" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="proveedorTextFieldDireccion" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="proveedorTextFieldApellido" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="proveedorTextFieldProvincia" min="-2" pref="200" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="proveedorTextFieldId" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -107,42 +105,51 @@
                   </Group>
               </Group>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="proveedorLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="proveedorLabelApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorTextFieldApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="proveedorTextFieldDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="proveedorLabelApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="proveedorLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="proveedorTextFieldDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="proveedorLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="proveedorTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="proveedorLabelCuit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorLabelCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorTextFieldCuit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorTextFieldCiudad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="proveedorLabelCuit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="proveedorLabelTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorLabelProvincia" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorTextFieldTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorTextFieldProvincia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="proveedorLabelTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="proveedorTextFieldId" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="proveedorBotonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorBotonCancelarEdicion" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -155,7 +162,7 @@
                   <Component id="proveedorTextFieldFiltro" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="proveedorBotonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <EmptySpace pref="7" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="191" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -180,60 +187,10 @@
         <Component class="javax.swing.JTable" name="proveedorTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="4">
-                <Column editable="false" title="Nombre" type="java.lang.Object"/>
-                <Column editable="false" title="Apellido" type="java.lang.Object"/>
-                <Column editable="false" title="Cuit" type="java.lang.Object"/>
-                <Column editable="false" title="Telefono" type="java.lang.Object"/>
-                <Column editable="false" title="Email" type="java.lang.Object"/>
-                <Column editable="false" title="Direccion" type="java.lang.Object"/>
-                <Column editable="false" title="Ciudad" type="java.lang.Object"/>
-                <Column editable="false" title="Provincia" type="java.lang.Object"/>
-              </Table>
+              <Table columnCount="0" rowCount="0"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
+              <TableColumnModel selectionModel="0"/>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -261,23 +218,30 @@
     <Component class="javax.swing.JTextField" name="proveedorTextFieldFiltro">
       <Properties>
         <Property name="text" type="java.lang.String" value="Escriba el proveedor que desea buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
       </Properties>
       <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="proveedorTextFieldFiltroFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="proveedorTextFieldFiltroFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorTextFieldFiltroActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="proveedorComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="8">
-            <StringItem index="0" value="Nombre"/>
-            <StringItem index="1" value="Apellido"/>
-            <StringItem index="2" value="Cuit"/>
-            <StringItem index="3" value="Telefono"/>
-            <StringItem index="4" value="Email"/>
-            <StringItem index="5" value="Direccion"/>
-            <StringItem index="6" value="Localidad"/>
-            <StringItem index="7" value="Provincia"/>
+          <StringArray count="9">
+            <StringItem index="0" value="nombre"/>
+            <StringItem index="1" value="apellido"/>
+            <StringItem index="2" value="cuit"/>
+            <StringItem index="3" value="telefono"/>
+            <StringItem index="4" value="email"/>
+            <StringItem index="5" value="direccion"/>
+            <StringItem index="6" value="localidad"/>
+            <StringItem index="7" value="provincia"/>
+            <StringItem index="8" value="inactivos"/>
           </StringArray>
         </Property>
       </Properties>
@@ -353,16 +317,28 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldNombre">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorTextFieldNombreActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldApellido">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorTextFieldApellidoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldCuit">
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldTelefono">
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldEmail">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorTextFieldEmailActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldDireccion">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proveedorTextFieldDireccionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="proveedorTextFieldCiudad">
     </Component>
@@ -370,8 +346,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="BankGothic Lt BT" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Editor de Proveedores"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="proveedorTextFieldId">
     </Component>
   </SubComponents>
 </Form>
